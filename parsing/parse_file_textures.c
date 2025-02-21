@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file_textures.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jermarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:12:59 by jermarti          #+#    #+#             */
-/*   Updated: 2025/02/21 23:13:02 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/02/21 23:30:01 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ int	parse_line(char	*line, t_rules *ways, t_paths *paths)
 int	map_textures(int fd, t_rules *w, t_paths *p)
 {
 	char	*line;
-	int		i;
 
 	while (!(everything_set(w)))
 	{

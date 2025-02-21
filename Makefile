@@ -4,6 +4,7 @@ SRCS = parsing/exits_copy_map.c \
 	utils/gnl/get_next_line_utils.c \
 	utils/gnl/get_next_line.c \
 	utils/misc.c \
+	utils/utils0.c \
 	window_handling/mlx_exits.c \
 	window_handling/mlx_start.c \
 	parsing/parse_file_directions.c \
@@ -11,7 +12,6 @@ SRCS = parsing/exits_copy_map.c \
 	parsing/parse_file_textures.c \
 	parsing/parse_map_content0.c \
 	parsing/parse_temp_map0.c \
-	parsing/utils0.c \
 	parsing/void_fill_temp_map.c \
 	main.c
 
