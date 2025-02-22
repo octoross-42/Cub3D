@@ -11,7 +11,7 @@ int	init_mlx_struct(t_map *game)
 		free(game->mlx);
 		return (printf("Error, mlx connection failed\n"), 0);
 	}
-	game->mlx->win = mlx_new_window(game->mlx->co, W_WIDTH, 640, "cub3D");
+	game->mlx->win = mlx_new_window(game->mlx->co, W_WIDTH, W_HEIGHT, "cub3D");
 	if (!(game->mlx->win))
 	{
 		mlx_destroy_display(game->mlx->co);
