@@ -116,6 +116,7 @@ int		is_map_closed(t_map *game);
 
 int		go_to_mlx_functions(t_map *game);
 void	get_images(t_map *game);
+void	free_images(t_map *game);
 int		check_images(t_map *game);
 void	free_mlx(t_map *game);
 
