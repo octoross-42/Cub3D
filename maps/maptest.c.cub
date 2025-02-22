@@ -1,13 +1,13 @@
-NO      textures/bluelol.xpm
-SO    textures/greenlol.xpm
+NO      textures/rougeavecdunoirsurlecote.xpm
+SO    textures/rougeavecdunoirsurlecote.xpm
 
 
 
 
 F    255,255,255
-EA textures/redlol.xpm
+EA textures/rougeavecdunoirsurlecote.xpm
 
-WE textures/yellowlol.xpm
+WE textures/rougeavecdunoirsurlecote.xpm
 
 
 

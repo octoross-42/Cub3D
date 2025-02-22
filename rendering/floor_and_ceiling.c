@@ -6,11 +6,11 @@
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:07:34 by octoross          #+#    #+#             */
-/*   Updated: 2025/02/22 01:09:44 by octoross         ###   ########.fr       */
+/*   Updated: 2025/02/22 01:30:13 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int ft_draw_floor_and_ceiling()
 {
-    
+    return (0);
 }

@@ -18,6 +18,8 @@
 # include <mlx.h>
 # include <math.h>
 
+#include "constantes.h"
+
 typedef struct	s_mlx
 {
 	void	*co;
