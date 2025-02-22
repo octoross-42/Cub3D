@@ -18,9 +18,6 @@
 # include <mlx.h>
 # include <math.h>
 
-# define BUFFER_SIZE 4096
-
-
 typedef struct	s_mlx
 {
 	void	*co;

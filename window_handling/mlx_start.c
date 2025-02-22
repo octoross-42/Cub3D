@@ -11,7 +11,7 @@ int	init_mlx_struct(t_map *game)
 		free(game->mlx);
 		return (printf("Error, mlx connection failed\n"), 0);
 	}
-	game->mlx->win = mlx_new_window(game->mlx->co, 1080, 640, "cub3D");
+	game->mlx->win = mlx_new_window(game->mlx->co, W_WIDTH, 640, "cub3D");
 	if (!(game->mlx->win))
 	{
 		mlx_destroy_display(game->mlx->co);
@@ -41,6 +41,7 @@ int	go_to_mlx_functions(t_map *game)
 {
 	if (!(init_mlx_struct(game)))
 		return (0);
+
 	change_map_get_player(game);
 	mlx_key_hook(game->mlx->win, &key_events, game);
 	mlx_hook(game->mlx->win, KeyRelease, KeyReleaseMask,

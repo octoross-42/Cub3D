@@ -13,6 +13,7 @@ SRCS = parsing/exits_copy_map.c \
 	parsing/parse_map_content0.c \
 	parsing/parse_temp_map0.c \
 	parsing/void_fill_temp_map.c \
+	rendering/floor_and_ceiling.c \
 	main.c
 
 OBJS = ${SRCS:.c=.o}
