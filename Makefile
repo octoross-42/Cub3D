@@ -7,6 +7,7 @@ SRCS = parsing/exits_copy_map.c \
 	utils/utils0.c \
 	window_handling/mlx_exits.c \
 	window_handling/mlx_start.c \
+	window_handling/mlx_images.c \
 	parsing/parse_file_directions.c \
 	parsing/parse_file_floor_and_ceiling.c \
 	parsing/parse_file_textures.c \

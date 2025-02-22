@@ -37,9 +37,13 @@ typedef struct	s_rules
 typedef struct	s_paths
 {
 	char	*n_path;
+	char	*n_text;
 	char	*s_path;
+	char	*s_text;
 	char	*e_path;
+	char	*e_text;
 	char	*w_path;
+	char	*w_text;
 	char	*floor;
 	char	*ceiling;
 	int		f_col[3];
@@ -108,6 +112,9 @@ void	release_textures(t_map *game);
 int		is_map_closed(t_map *game);
 
 int		go_to_mlx_functions(t_map *game);
+void	get_images(t_map *game);
+void	free_images(t_map *game);
+int		check_images(t_map *game);
 void	free_mlx(t_map *game);
 
 #endif

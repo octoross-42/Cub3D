@@ -86,7 +86,7 @@ int	main(int argc, char **argv)
 	free_copy_map(game, game->map_copy);
 	if (go_to_mlx_functions(game))
 		free_mlx(game);
-	
+	free_images(game);
 	final_free(game);
 	return (0);
 }
