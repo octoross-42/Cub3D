@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exits_copy_map.c                                   :+:      :+:    :+:   */
+/*   walls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/21 23:12:05 by jermarti          #+#    #+#             */
-/*   Updated: 2025/02/23 23:02:31 by octoross         ###   ########.fr       */
+/*   Created: 2025/02/22 22:07:24 by octoross          #+#    #+#             */
+/*   Updated: 2025/02/23 21:49:39 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
-void	noob_free(void  *ptr)
+int ft_draw_walls(t_map *map)
 {
-	if (ptr)
+	int i = 0;
+	while (map->map[i])
 	{
-		free(ptr);
-		ptr = NULL;
+		int j = 0;
+		while (map->map[i][j])
+			printf("%c", map->map[i][j++]);
+		printf("\n");
+		i++;
 	}
-}
-
-void	free_copy_map(t_map *game, char **map)
-{
-	int i;
-
-	i = 0;
-	while (i < (game->num_lines + 2))
-	{
-		if (map[i])
-			noob_free(map[i]);
-		i ++;
-	}
-	noob_free(map);
-}
-
-void	exit_bad_map(t_map *game)
-{
-	free_copy_map(game, game->map_copy);
-	free_map(game->map);
-	cringe_free(NULL, 0, NULL, game->textures);
-	free(game);
+    return (0);
 }

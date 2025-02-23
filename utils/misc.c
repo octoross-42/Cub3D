@@ -34,21 +34,6 @@ int	ft_atoi(char *s)
 	return (i);
 }
 
-void	final_free(t_map *game)
-{
-	release_textures(game);
-	free_map(game->map);
-	free(game);
-}
-
-void	free_mlx(t_map *game)
-{
-	mlx_destroy_window(game->mlx->co, game->mlx->win);
-	mlx_destroy_display(game->mlx->co);
-	free(game->mlx->co);
-	free(game->mlx);
-}
-
 // void	print_int_array(int *colors)
 // {
 // 	int	i = 0;

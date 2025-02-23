@@ -15,6 +15,8 @@ SRCS = parsing/exits_copy_map.c \
 	parsing/parse_temp_map0.c \
 	parsing/void_fill_temp_map.c \
 	rendering/floor_and_ceiling.c \
+	rendering/draw.c \
+	rendering/walls.c \
 	main.c
 
 OBJS = ${SRCS:.c=.o}
@@ -24,7 +26,7 @@ CFLAGS = -Wall -Wextra -Werror
 MLX_FLAGS = -lmlx -lXext -lX11
 
 %.o: %.c
-	$(CC) $(CFLAGS) -Iinclude/ -Imlx -c $< -o ${<:.c=.o}	
+	$(CC) $(CFLAGS) -g3 -Iinclude/ -Imlx -c $< -o ${<:.c=.o}	
 
 $(NAME): ${OBJS}
 	$(CC) $(CFLAGS) $(OBJS) -Lmlx -L/usr/lib $(MLX_FLAGS) -lm -lz -o $(NAME)

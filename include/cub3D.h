@@ -52,6 +52,18 @@ typedef struct	s_paths
 	int		c_col[3];
 }			t_paths;
 
+typedef struct s_img
+{
+	void		*img;
+	char		*addr;
+	int			bpp;
+	int			size_line;
+	int			endian;
+	int			width;
+	int			height;
+}				t_img;
+
+
 typedef struct	s_map
 {
 	char	**map;
@@ -64,6 +76,7 @@ typedef struct	s_map
 	char	direction;
 	t_paths	*textures;
 	t_mlx	*mlx;
+	t_img	*img;
 }			t_map;
 
 typedef	struct	s_search
@@ -118,5 +131,13 @@ void	get_images(t_map *game);
 void	free_images(t_map *game);
 int		check_images(t_map *game);
 void	free_mlx(t_map *game);
+
+
+
+void	ft_draw_pixel(t_img *img, int x, int y, int color);
+
+int 	ft_draw_walls(t_map *map);
+int		ft_draw(t_map *game);
+t_img	*ft_init_image(t_mlx *mlx);
 
 #endif

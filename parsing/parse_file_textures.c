@@ -6,7 +6,7 @@
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:12:59 by jermarti          #+#    #+#             */
-/*   Updated: 2025/02/21 23:30:01 by octoross         ###   ########.fr       */
+/*   Updated: 2025/02/22 22:04:42 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	map_textures(int fd, t_rules *w, t_paths *p)
 	if (!(everything_set(w)))
 		return (cringe_free(NULL, fd, w, NULL), 0);
 	if (everything_set(w) == -1)
-		return (free(line), cringe_free(line, fd, w, NULL), 0);
+		return (cringe_free(line, fd, w, NULL), 0);
 	if (f_and_c_cmp(p))
 	{
 		empty_buffer(fd);
