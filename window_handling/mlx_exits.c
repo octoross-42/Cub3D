@@ -28,10 +28,10 @@ void	free_mlx(t_map *game)
 
 void	free_images(t_map *game)
 {
-	mlx_destroy_image(game->mlx->co, game->textures->n_text);
-	mlx_destroy_image(game->mlx->co, game->textures->e_text);
-	mlx_destroy_image(game->mlx->co, game->textures->s_text);
-	mlx_destroy_image(game->mlx->co, game->textures->w_text);
+	mlx_destroy_image(game->mlx->co, game->textures->n_text.img);
+	mlx_destroy_image(game->mlx->co, game->textures->e_text.img);
+	mlx_destroy_image(game->mlx->co, game->textures->s_text.img);
+	mlx_destroy_image(game->mlx->co, game->textures->w_text.img);
 	mlx_destroy_image(game->mlx->co, game->img->img);
 	free(game->img);
 }

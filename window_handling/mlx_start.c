@@ -37,16 +37,16 @@ int	key_events(int key, t_map *game)
 	
 	else if (key == 97)
 		mlx_put_image_to_window(game->mlx->co, game->mlx->win,
-			game->textures->w_text,	0, 640/2);
+			game->textures->w_text.img,	0, 640/2);
 	else if (key == 119)
 		mlx_put_image_to_window(game->mlx->co, game->mlx->win,
-		game->textures->n_text,	0, 640/2 -36);
+		game->textures->n_text.img,	0, 640/2 -36);
 	else if (key == 100)
 		mlx_put_image_to_window(game->mlx->co, game->mlx->win,
-		game->textures->e_text,	0, 640/2+36);
+		game->textures->e_text.img,	0, 640/2+36);
 	else if (key == 115)
 		mlx_put_image_to_window(game->mlx->co, game->mlx->win,
-		game->textures->s_text,	0+36, 640/2);
+		game->textures->s_text.img,	0+36, 640/2);
 	return (0);
 }
 

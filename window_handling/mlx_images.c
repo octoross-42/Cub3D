@@ -2,28 +2,28 @@
 
 void	check_and_free(t_map *game)
 {
-	if (game->textures->n_text)
-		mlx_destroy_image(game->mlx->co, game->textures->n_text);
+	if (game->textures->n_text.img)
+		mlx_destroy_image(game->mlx->co, game->textures->n_text.img);
 	else
 		printf("Error, failed to load north texture\n");
-	if (game->textures->s_text)
-		mlx_destroy_image(game->mlx->co, game->textures->s_text);
+	if (game->textures->s_text.img)
+		mlx_destroy_image(game->mlx->co, game->textures->s_text.img);
 	else
 		printf("Error, failed to load south texture\n");
-	if (game->textures->e_text)
-		mlx_destroy_image(game->mlx->co, game->textures->e_text);
+	if (game->textures->e_text.img)
+		mlx_destroy_image(game->mlx->co, game->textures->e_text.img);
 	else
 		printf("Error, failed to load east texture\n");
-	if (game->textures->w_text)
-		mlx_destroy_image(game->mlx->co, game->textures->w_text);
+	if (game->textures->w_text.img)
+		mlx_destroy_image(game->mlx->co, game->textures->w_text.img);
 	else
 		printf("Error, failed to load west texture\n");
 }
 
 int	check_images(t_map *game)
 {
-	if (!game->textures->n_text || !game->textures->e_text
-        || !game->textures->w_text ||!game->textures->s_text)
+	if (!game->textures->n_text.img || !game->textures->e_text.img
+        || !game->textures->w_text.img ||!game->textures->s_text.img)
 	{
 		check_and_free(game);
         return (0);
@@ -33,17 +33,15 @@ int	check_images(t_map *game)
 
 void	get_images(t_map *game)
 {
-	int	i;
-	int	j;
+	t_paths	*t;
 
-	i = 36;
-	j = 36;
-	game->textures->n_text = mlx_xpm_file_to_image(game->mlx->co,
-		game->textures->n_path, &i, &j);
-	game->textures->e_text = mlx_xpm_file_to_image(game->mlx->co,
-		game->textures->e_path, &i, &j);
-	game->textures->s_text = mlx_xpm_file_to_image(game->mlx->co,
-		game->textures->s_path, &i, &j);
-	game->textures->w_text = mlx_xpm_file_to_image(game->mlx->co,
-		game->textures->w_path, &i, &j);
+	t = game->textures;
+	t->n_text.img = mlx_xpm_file_to_image(game->mlx->co,
+		t->n_path, &t->n_text.width, &t->n_text.height);
+	t->s_text.img = mlx_xpm_file_to_image(game->mlx->co,
+		t->s_path, &t->s_text.width, &t->s_text.height);
+	t->e_text.img = mlx_xpm_file_to_image(game->mlx->co,
+		t->e_path, &t->e_text.width, &t->e_text.height);
+	t->w_text.img = mlx_xpm_file_to_image(game->mlx->co,
+		t->w_path, &t->w_text.width, &t->w_text.height);
 }

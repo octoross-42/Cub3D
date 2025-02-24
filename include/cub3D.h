@@ -37,22 +37,6 @@ typedef struct	s_rules
 	int	ceiling;
 }		t_rules;
 
-typedef struct	s_paths
-{
-	char	*n_path;
-	void	*n_text;
-	char	*s_path;
-	void	*s_text;
-	char	*e_path;
-	void	*e_text;
-	char	*w_path;
-	void	*w_text;
-	char	*floor;
-	char	*ceiling;
-	int		f_col[3];
-	int		c_col[3];
-}			t_paths;
-
 typedef struct s_img
 {
 	void		*img;
@@ -63,6 +47,22 @@ typedef struct s_img
 	int			width;
 	int			height;
 }				t_img;
+
+typedef struct	s_paths
+{
+	char	*n_path;
+	t_img	n_text;
+	char	*s_path;
+	t_img	s_text;
+	char	*e_path;
+	t_img	e_text;
+	char	*w_path;
+	t_img	w_text;
+	char	*floor;
+	char	*ceiling;
+	int		f_col[3];
+	int		c_col[3];
+}			t_paths;
 
 typedef struct s_player
 {
@@ -173,6 +173,7 @@ typedef struct s_dda
 	int		side;
 	int		map_i;
 	int		map_j;
+	int		x;
 }	t_dda;
 
 void	ft_draw_pixel(t_img *img, int x, int y, int color);
