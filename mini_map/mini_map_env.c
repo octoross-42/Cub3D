@@ -1,30 +1,25 @@
 #include "cub3D.h"
 
+char    *int_tab_to_hexa(int *lul)
+{
+    char    *rgb = malloc(7);
+		if (!(rgb))
+			return (NULL);
 
-// char    *int_tab_to_hexa(int *lul)
-// {
-//     char    *rgb = malloc(7);
-//		if (!(rgb))
-//			return (NULL);
-
-//     rgb[0] = HEXA[lul[0] / 16];
-//     rgb[1] = HEXA[lul[0] % 16];
-//     rgb[2] = HEXA[lul[1] / 16];
-//     rgb[3] = HEXA[lul[1] % 16];
-//     rgb[4] = HEXA[lul[2] / 16];
-//     rgb[5] = HEXA[lul[2] % 16];
-//     rgb[6] = 0;
-//     return (rgb);
-// }
+    rgb[0] = HEXA[lul[0] / 16];
+    rgb[1] = HEXA[lul[0] % 16];
+    rgb[2] = HEXA[lul[1] / 16];
+    rgb[3] = HEXA[lul[1] % 16];
+    rgb[4] = HEXA[lul[2] / 16];
+    rgb[5] = HEXA[lul[2] % 16];
+    rgb[6] = 0;
+    return (rgb);
+}
 
 void	draw_that_fk_image(t_map *game, int i, int j)
 {
-	//j va de -10 à +10 (x de la mlx) longueur
-	//play-x = map[w.e][play_x]
-	//i va de -5 à + 5 (y de la mlx) hauteur
-	//play_y = map[play_y][w.e]
-	int	x;//hauteur
-	int	y;//longueur
+	int	x;
+	int	y;
 
 	x = game->player->y + i;
 	y = game->player->x + j;
