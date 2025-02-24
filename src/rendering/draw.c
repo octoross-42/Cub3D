@@ -12,18 +12,13 @@
 
 #include "cub3D.h"
 
-int	ft_colorOfRgb(int r, int g, int b)
-{
-	return ((r << 16) | (g << 8) | b);
-}
-
 void	ft_draw_pixel(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
 
 	pixel = img->addr
 		+ (y * img->size_line
-		+ x * (img->bpp / 8));
+			+ x * (img->bpp / 8));
 	*(int *)pixel = color;
 }
 
@@ -44,7 +39,7 @@ t_img	*ft_init_image(t_mlx *mlx, int width, int height)
 
 void	ft_draw(t_map *game)
 {
-	// (void)game;
 	ft_draw_walls(game);
-	mlx_put_image_to_window(game->mlx->co, game->mlx->win, game->img->img, 0, 0);
+	mlx_put_image_to_window(game->mlx->co,
+		game->mlx->win, game->img->img, 0, 0);
 }

@@ -6,15 +6,15 @@
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 22:07:24 by octoross          #+#    #+#             */
-/*   Updated: 2025/02/24 11:52:59 by octoross         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:07:21 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void ft_draw_walls(t_map *map)
+void	ft_draw_walls(t_map *map)
 {
-	int 		x;
+	int			x;
 	t_player	*player;
 	t_dda		dda;
 

@@ -6,10 +6,10 @@
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:07:34 by octoross          #+#    #+#             */
-/*   Updated: 2025/02/24 10:58:10 by octoross         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:06:52 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_draw_floor_and_ceiling()
+void	ft_draw_floor_and_ceiling(void)
 {
 }
