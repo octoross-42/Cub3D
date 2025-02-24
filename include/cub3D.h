@@ -63,18 +63,24 @@ typedef struct s_img
 	int			height;
 }				t_img;
 
+typedef struct s_player
+{
+	float	x;
+	float	y;
+	float	dx;
+	float	dy;
+	float	camera_plane_dx;
+	float	camera_plane_dy;
+}	t_player;
 
 typedef struct	s_map
 {
 	char	**map;
 	char	**map_copy;
-	int		player;
+	int		player_nbr;
 	int		num_lines;
 	int		max_width;
-	float	player_x;
-	float	player_y;
-	float	player_dx;
-	float	player_dy;
+	t_player	*player;
 	char	direction;
 	t_paths	*textures;
 	t_mlx	*mlx;
@@ -99,7 +105,7 @@ int		ft_len(char *s);
 char	*ft_strncpy(const char *src, int size);
 int		ft_atoi(char *s);
 int		f_and_c_cmp(t_paths *textures);
-void	change_map_get_player(t_map *game);
+int		change_map_get_player(t_map *game);
 
 void	print_map(char **map);
 void	free_map(char **map);

@@ -38,15 +38,21 @@ int	is_player(char c)
 	return (0);
 }
 
-void	position_player(t_map *game, int i, int j)
+int	position_player(t_map *game, int i, int j)
 {
-	game->player_x = j + 0.5;
-	game->player_y = i + 0.5;
-	game->player_dx = (game->direction == 'E') - (game->direction == 'W');
-	game->player_dy = (game->direction == 'S') - (game->direction == 'N');
+	game->player = (t_player *)malloc(sizeof(t_player));
+	if (!game->player)
+		return (0);
+	game->player->x = j + 0.5;
+	game->player->y = i + 0.5;
+	game->player->dx = (game->direction == 'E') - (game->direction == 'W');
+	game->player->dy = (game->direction == 'S') - (game->direction == 'N');
+	game->player->camera_plane_dx = -FOV * game->player->dy;
+	game->player->camera_plane_dy = FOV * game->player->dx;
+	return (1);
 }
 
-void	change_map_get_player(t_map *game)
+int	change_map_get_player(t_map *game)
 {
 	int	i;
 	int	j;
@@ -59,11 +65,12 @@ void	change_map_get_player(t_map *game)
 		{
 			if (game->map[i][j] == ' ')
 				game->map[i][j] = '1';
-			else if (is_player(game->map[i][j]))
-				position_player(game, i, j);
+			else if (is_player(game->map[i][j]) && !position_player(game, i, j))
+				return (0);
 			j ++;
 		}
 		j = 0;
 		i ++;
 	}
+	return (1);
 }

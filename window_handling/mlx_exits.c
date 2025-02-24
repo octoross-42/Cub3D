@@ -13,6 +13,7 @@ void	release_textures(t_map *game)
 
 void	final_free(t_map *game)
 {
+	free(game->player);
 	release_textures(game);
 	free_map(game->map);
 }

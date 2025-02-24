@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map_content0.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jermarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:13:16 by jermarti          #+#    #+#             */
-/*   Updated: 2025/02/21 23:13:18 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/02/24 01:37:59 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ int	set_basics(char *st_map, t_map *game)
 		if (*st_map == 'N' || *st_map == 'E'
 			|| *st_map == 'W' || *st_map == 'S')
 		{
-			game->player ++;
+			game->player_nbr ++;
 			game->direction = *st_map;
 		}
 		st_map ++;
 	}
-	if (game->player == 1)
+	if (game->player_nbr == 1)
 		return (1);
 	printf("Error, no player or more than one player found\n");
 	return (0);

@@ -76,7 +76,7 @@ int	main(int argc, char **argv)
 	if (!game)
 		return (printf("Error allocing memory for the main structure\n"), 1);
 	game->max_width = 0;
-	game->player = 0;
+	game->player_nbr = 0;
 	if (!check_map_ext(argv[1]))
 		return (free(game), 0);
 	if (!check_map_content(argv[1], game))

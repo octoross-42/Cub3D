@@ -55,7 +55,8 @@ int	go_to_mlx_functions(t_map *game)
 	if (!(init_mlx_struct(game)))
 		return (0);
 
-	change_map_get_player(game);
+	if (!change_map_get_player(game))
+		return (0);
 	get_images(game);
 	if (!check_images(game))
 		return (0);
