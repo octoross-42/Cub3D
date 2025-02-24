@@ -40,8 +40,10 @@ int	is_player(char c)
 
 void	position_player(t_map *game, int i, int j)
 {
-	game->play_x_start = j;
-	game->play_y_start = i;
+	game->player_x = j + 0.5;
+	game->player_y = i + 0.5;
+	game->player_dx = (game->direction == 'E') - (game->direction == 'W');
+	game->player_dy = (game->direction == 'S') - (game->direction == 'N');
 }
 
 void	change_map_get_player(t_map *game)
