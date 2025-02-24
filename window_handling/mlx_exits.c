@@ -6,8 +6,6 @@ void	release_textures(t_map *game)
 	free(game->textures->s_path);
 	free(game->textures->e_path);
 	free(game->textures->w_path);
-	free(game->textures->ceiling);
-	free(game->textures->floor);
 	free(game->textures);
 }
 
@@ -34,6 +32,7 @@ void	free_images(t_map *game)
 	mlx_destroy_image(game->mlx->co, game->textures->w_text.img);
 	mlx_destroy_image(game->mlx->co, game->img->img);
 	free(game->img);
+	// (void) game;
 }
 
 int end_game(t_map *game)
