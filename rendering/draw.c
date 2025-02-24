@@ -27,15 +27,15 @@ void	ft_draw_pixel(t_img *img, int x, int y, int color)
 	*(int *)pixel = color;
 }
 
-t_img	*ft_init_image(t_mlx *mlx)
+t_img	*ft_init_image(t_mlx *mlx, int width, int height)
 {
 	t_img	*img;
 
 	img = malloc(sizeof(t_img));
 	if (!img)
 		return (NULL);
-	img->width = W_WIDTH;
-	img->height = W_HEIGHT;
+	img->width = width;
+	img->height = height;
 	img->img = mlx_new_image(mlx->co, img->width, img->height);
 	img->addr = mlx_get_data_addr(img->img, &(img->bpp),
 			&(img->size_line), &(img->endian));
@@ -45,7 +45,7 @@ t_img	*ft_init_image(t_mlx *mlx)
 int	ft_draw(t_map *game)
 {
 	// (void)game;
-	game->img = ft_init_image(game->mlx);
+	game->img = ft_init_image(game->mlx, W_WIDTH, W_HEIGHT);
 	if (!(game->img))
 		return (0);
 	ft_draw_walls(game);

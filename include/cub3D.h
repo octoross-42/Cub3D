@@ -10,6 +10,7 @@
 # include <stddef.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <float.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <stdlib.h>
@@ -39,13 +40,13 @@ typedef struct	s_rules
 typedef struct	s_paths
 {
 	char	*n_path;
-	char	*n_text;
+	void	*n_text;
 	char	*s_path;
-	char	*s_text;
+	void	*s_text;
 	char	*e_path;
-	char	*e_text;
+	void	*e_text;
 	char	*w_path;
-	char	*w_text;
+	void	*w_text;
 	char	*floor;
 	char	*ceiling;
 	int		f_col[3];
@@ -141,11 +142,28 @@ int		check_images(t_map *game);
 void	free_mlx(t_map *game);
 
 
+typedef struct s_dda
+{
+	float	fov_x;
+	float	ray_dx;
+	float	ray_dy;
+	float	side_dist_x;
+	float	side_dist_y;
+	float	delta_dist_x;
+	float	delta_dist_y;
+	float	wall_dist;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		map_i;
+	int		map_j;
+}	t_dda;
 
 void	ft_draw_pixel(t_img *img, int x, int y, int color);
 
-int 	ft_draw_walls(t_map *map);
+void 	ft_draw_walls(t_map *map);
 int		ft_draw(t_map *game);
-t_img	*ft_init_image(t_mlx *mlx);
+t_img	*ft_init_image(t_mlx *mlx, int width, int height);
 
 #endif
