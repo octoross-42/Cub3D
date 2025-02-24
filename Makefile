@@ -5,6 +5,7 @@ SRCS = parsing/exits_copy_map.c \
 	utils/gnl/get_next_line.c \
 	utils/misc.c \
 	utils/utils0.c \
+	mini_map/free_mini_map.c \
 	mini_map/mini_map.c \
 	mini_map/mini_map_env.c \
 	window_handling/mlx_exits.c \

@@ -28,7 +28,7 @@ void	draw_that_fk_image(t_map *game, int i, int j)
         mlx_put_image_to_window(game->mlx->co, game->mlx->win,
 		    game->minimap->void_square, 61 + (j * 6),
             31 + (i * 6));
-	else if (y > ft_len(game->map[x]))
+	else if (y > ft_len(game->map[x]) - 1)
 		mlx_put_image_to_window(game->mlx->co, game->mlx->win,
 			game->minimap->void_square, 61 + (j * 6),
 			31 + (i * 6));
