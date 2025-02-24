@@ -71,8 +71,10 @@ typedef struct	s_map
 	int		player;
 	int		num_lines;
 	int		max_width;
-	float	play_x_start;
-	float	play_y_start;
+	float	player_x;
+	float	player_y;
+	float	player_dx;
+	float	player_dy;
 	char	direction;
 	t_paths	*textures;
 	t_mlx	*mlx;
