@@ -74,6 +74,16 @@ typedef struct s_player
 	float	camera_plane_dy;
 }	t_player;
 
+typedef struct s_minimap
+{
+	char	*dot_player;
+	char	*wall_square;
+	char	*empty_square;
+	char	*void_square;
+	char	*horizontal_outline;
+	char	*vertical_outline;
+}				t_minimap;
+
 typedef struct	s_map
 {
 	char	**map;
@@ -82,6 +92,7 @@ typedef struct	s_map
 	int		num_lines;
 	int		max_width;
 	t_player	*player;
+	t_minimap	*minimap;
 	char	direction;
 	t_paths	*textures;
 	t_mlx	*mlx;
@@ -140,6 +151,9 @@ void	get_images(t_map *game);
 void	free_images(t_map *game);
 int		check_images(t_map *game);
 void	free_mlx(t_map *game);
+void    draw_surroundings(t_map *game);
+int		draw_minimap(t_map *game);
+char    *int_tab_to_hexa(int *lul);
 
 
 typedef struct s_dda

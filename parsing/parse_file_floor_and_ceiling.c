@@ -122,7 +122,6 @@ int	check_ceiling(char *s, t_rules *ways, t_paths *paths)
 	else
 	{
 		ways->ceiling ++;
-		paths->ceiling = ft_strdup(s);
 		return (1);
 	}
 }
@@ -141,7 +140,6 @@ int	check_floor(char *s, t_rules *ways, t_paths *paths)
 	else
 	{
 		ways->floor ++;
-		paths->floor = ft_strdup(s);
 		return (1);
 	}
 }

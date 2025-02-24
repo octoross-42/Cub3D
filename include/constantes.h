@@ -21,5 +21,6 @@
 # define FOV 0.66
 # define X_RESOLUTION 10
 # define BUFFER_SIZE 4096
+# define HEXA "0123456789ABCDEF"
 
 #endif

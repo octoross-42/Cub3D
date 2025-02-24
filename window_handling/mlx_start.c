@@ -63,7 +63,9 @@ int	go_to_mlx_functions(t_map *game)
 
 	if (!ft_draw(game))
 		return (0);
-
+	if (!draw_minimap(game))
+		return (0);
+	
 	mlx_key_hook(game->mlx->win, &key_events, game);
 	mlx_hook(game->mlx->win, KeyRelease, KeyReleaseMask,
 		&key_events, game);

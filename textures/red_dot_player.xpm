@@ -1,0 +1,14 @@
+/* XPM */
+static char *xpm_[] = {
+/* columns rows colors chars-per-pixel */
+"6 6 2 1 ",
+"  c #FFF1DE",
+"a c #FF00FF",
+/* pixels */
+"  aa  ",
+" aaaa ",
+"aaaaaa",
+"aaaaaa",
+" aaaa ",
+"  aa  "
+};
