@@ -95,6 +95,8 @@ int	draw_minimap(t_map *game)
 	mlx_put_image_to_window(game->mlx->co, game->mlx->win,
 		game->minimap->horizontal_outline,	0, 61);
 	draw_surroundings(game);
+	mlx_destroy_image(game->mlx->co, game->minimap->vertical_outline);
+	mlx_destroy_image(game->mlx->co, game->minimap->horizontal_outline);
 	mlx_put_image_to_window(game->mlx->co, game->mlx->win,
 		game->minimap->dot_player, 61, 31);
 	return (1);

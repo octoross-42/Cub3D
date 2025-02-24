@@ -32,7 +32,7 @@ MLX_FLAGS = -lmlx -lXext -lX11
 	$(CC) $(CFLAGS) -g3 -Iinclude/ -Imlx -c $< -o ${<:.c=.o}	
 
 $(NAME): ${OBJS}
-	$(CC) $(CFLAGS) $(OBJS) -Lmlx -L/usr/lib $(MLX_FLAGS) -lm -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -Lmlx -L/usr/lib $(MLX_FLAGS) -lm -lz -o $(NAME)
 
 all : ${NAME}
 
