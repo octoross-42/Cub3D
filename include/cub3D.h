@@ -160,6 +160,7 @@ char    *int_tab_to_hexa(int *lul);
 
 typedef struct s_dda
 {
+	t_img	*texture;
 	float	fov_x;
 	float	ray_dx;
 	float	ray_dy;
@@ -168,6 +169,8 @@ typedef struct s_dda
 	float	delta_dist_x;
 	float	delta_dist_y;
 	float	wall_dist;
+	float	wall_height;
+	float	wall_x;
 	int		step_x;
 	int		step_y;
 	int		hit;
@@ -175,8 +178,12 @@ typedef struct s_dda
 	int		map_i;
 	int		map_j;
 	int		x;
+	int		draw_y_start;
+	int		draw_y_end;
 }	t_dda;
 
+float	ft_abs(float n);
+void	ft_dda(t_dda *dda, t_map *game);
 void	ft_draw_pixel(t_img *img, int x, int y, int color);
 
 void 	ft_draw_walls(t_map *map);

@@ -34,6 +34,13 @@ int	ft_atoi(char *s)
 	return (i);
 }
 
+float	ft_abs(float n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
 // void	print_int_array(int *colors)
 // {
 // 	int	i = 0;

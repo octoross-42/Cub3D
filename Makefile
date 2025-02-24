@@ -20,6 +20,7 @@ SRCS = parsing/exits_copy_map.c \
 	rendering/floor_and_ceiling.c \
 	rendering/draw.c \
 	rendering/walls.c \
+	rendering/dda.c \
 	main.c
 
 OBJS = ${SRCS:.c=.o}
