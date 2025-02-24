@@ -37,6 +37,7 @@ void	free_images(t_map *game)
 
 int end_game(t_map *game)
 {
+	deal_with_minimap(game);
 	free_images(game);
 	final_free(game);
 	free_mlx(game);

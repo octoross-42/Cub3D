@@ -154,6 +154,7 @@ int		check_images(t_map *game);
 void	free_mlx(t_map *game);
 void    draw_surroundings(t_map *game);
 int		draw_minimap(t_map *game);
+void    deal_with_minimap(t_map *game);
 char    *int_tab_to_hexa(int *lul);
 
 

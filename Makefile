@@ -5,6 +5,7 @@ SRCS = parsing/exits_copy_map.c \
 	utils/gnl/get_next_line.c \
 	utils/misc.c \
 	utils/utils0.c \
+	mini_map/free_mini_map.c \
 	mini_map/mini_map.c \
 	mini_map/mini_map_env.c \
 	window_handling/mlx_exits.c \
@@ -31,7 +32,7 @@ MLX_FLAGS = -lmlx -lXext -lX11
 	$(CC) $(CFLAGS) -g3 -Iinclude/ -Imlx -c $< -o ${<:.c=.o}	
 
 $(NAME): ${OBJS}
-	$(CC) $(CFLAGS) $(OBJS) -Lmlx -L/usr/lib $(MLX_FLAGS) -lm -lz-o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -Lmlx -L/usr/lib $(MLX_FLAGS) -lm -o $(NAME)
 
 all : ${NAME}
 
