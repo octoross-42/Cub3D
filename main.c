@@ -1,5 +1,21 @@
 #include "cub3D.h"
 
+int	ft_strcmp(char *s1, char *s2)
+{
+    size_t	i;
+
+    if (!s1 && !s2)
+        return (0);
+    if (!s1)
+        return (s2[0]);
+    if (!s2)
+        return (s1[0]);
+    i = 0;
+    while (s1[i] && s1[i] == s2[i])
+        i ++;
+    return (s1[i] - s2[i]);
+}
+
 void	init_things(t_rules *w, t_paths *t)
 {
 	w->north = 0;
@@ -53,7 +69,7 @@ int	check_map_ext(char *s)
 		printf("Error, program requires a .cub file to work\n");
 		return (0);
 	}
-	if (strcmp(&s[i - 4], ".cub"))
+	if (ft_strcmp(&s[i - 4], ".cub"))
 	{
 		printf("Error, program requires a .cub file to work\n");
 		return (0);

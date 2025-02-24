@@ -114,6 +114,7 @@ char	*ft_strdup(char *s);
 int		is_nl(char *s);
 int		ft_len(char *s);
 
+int		ft_strcmp(char *s1, char *s2);
 char	*ft_strncpy(const char *src, int size);
 int		ft_atoi(char *s);
 int		f_and_c_cmp(t_paths *textures);

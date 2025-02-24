@@ -79,7 +79,7 @@ int	direction_check(char *s, t_rules *ways, t_paths *paths)
 
 int	parse_line(char	*line, t_rules *ways, t_paths *paths)
 {
-	if (!(strcmp(line, "\n")))
+	if (!(ft_strcmp(line, "\n")))
 		return (1);
 	while (*line == ' ')
 		line ++;
