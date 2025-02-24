@@ -19,7 +19,7 @@
 # include <mlx.h>
 # include <math.h>
 
-#include "constantes.h"
+# include "constantes.h"
 
 typedef struct	s_mlx
 {
@@ -101,8 +101,8 @@ typedef struct	s_map
 
 typedef	struct	s_search
 {
-	int	wall;
-	int	zero;
+		int	wall;
+		int	zero;
 }		t_search;
 
 char	*get_next_line(int fd);
