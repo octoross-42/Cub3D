@@ -23,14 +23,16 @@ void	draw_that_fk_image(t_map *game, int i, int j)
 
 	x = game->player->y + i;
 	y = game->player->x + j;
-	if (x < 0 || y < 0 || y > game->max_width || x > game->num_lines - 1)
-    {
+	printf("%d\t%d\n", x, y);
+	if (x < 0 || y < 0 || x > game->num_lines - 1)
         mlx_put_image_to_window(game->mlx->co, game->mlx->win,
 		    game->minimap->void_square, 61 + (j * 6),
             31 + (i * 6));
-            return ;
-    }
-    else if (game->map[x][y] == '1')
+	else if (y > ft_len(game->map[x]))
+		mlx_put_image_to_window(game->mlx->co, game->mlx->win,
+			game->minimap->void_square, 61 + (j * 6),
+			31 + (i * 6));
+    else if (game->map[x][y] == '1' || game->map[x][y] == '\n')
         mlx_put_image_to_window(game->mlx->co, game->mlx->win,
 		    game->minimap->wall_square, 61 + (j * 6),
             31 + (i * 6));
