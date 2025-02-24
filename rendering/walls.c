@@ -6,7 +6,7 @@
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 22:07:24 by octoross          #+#    #+#             */
-/*   Updated: 2025/02/24 07:34:04 by octoross         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:49:08 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,10 @@ void	ft_hit_wall(t_dda *dda, t_map *game)
 		dda->wall_dist = dda->side_dist_x - dda->delta_dist_x;
 	else
 		dda->wall_dist = dda->side_dist_y - dda->delta_dist_y;
+	// if (dda->side == 0)
+	// 	dda->wall_dist = (dda->map_i - game->player->x + (1 - dda->step_x) / 2) / dda->ray_dx;
+	// else
+	// 	dda->wall_dist = (dda->map_j - game->player->y + (1 - dda->step_y) / 2) / dda->ray_dy;
 	wall_height = (int)(W_HEIGHT / dda->wall_dist);
 	draw_y_start = -(wall_height / 2) + (W_HEIGHT / 2);
 	if(draw_y_start < 0)
@@ -78,51 +82,47 @@ void	ft_hit_wall(t_dda *dda, t_map *game)
 	texture = NULL;
 	if (dda->side == 0)
 	{
-		if (dda->ray_dx > game->player->x)
+		if (dda->ray_dx > 0)
 			texture = &(game->textures->w_text);
 		else
 			texture = &(game->textures->e_text);
 	}
 	else
 	{
-		if (dda->ray_dy > game->player->y)
-		texture = &(game->textures->n_text);
+		if (dda->ray_dy > 0)
+		{
+			printf("north\n");
+			texture = &(game->textures->n_text);
+		}
 		else
-		texture = &(game->textures->s_text);
+		{
+			printf("south %f %f\n", dda->ray_dy, game->player->dy);
+			texture = &(game->textures->s_text);
+		}
 	}
 	addr = (int *)mlx_get_data_addr(texture->img, &(texture->bpp),
 			&(texture->size_line), &(texture->endian));
-	// int k = 0;
-	// while (k < 36 * 36)
-	// {
-	// 	printf("%d ", addr[k ++]);
-	// }
-	(void)texture;
-	// printf("direction wall : %c\n", direction);
+	
 	int y = draw_y_start;
 	texture_color = 0x00FF00;
 	int tex_x = 0;
 	float wall_x = 0;
-	// printf("texture->width : %d\n", texture->width);
 	if (dda->side == 1)
 	{
-		wall_x = (game->player->x + dda->delta_dist_y * dda->ray_dx);
+		wall_x = (game->player->x + dda->wall_dist * dda->ray_dx);
 		tex_x = (int)(wall_x * texture->width) % texture->width;
 
 	}
 	else
 	{
-		wall_x = game->player->y + dda->delta_dist_x * dda->ray_dy; // Position x de la collision
+		wall_x = game->player->y + dda->wall_dist * dda->ray_dy; // Position x de la collision
 
 		tex_x = (int)(wall_x * texture->width) % texture->width;
 	}
 	while (y < draw_y_end)
 	{
 		int tex_y = ((y - draw_y_start) * texture->height) / wall_height;
-		// printf("adreesse color : %d\n", tex_y * texture->width + tex_x);
 		texture_color = addr[tex_y * texture->width + tex_x];
-		// if (texture_color != 0)
-			// printf("texture_color : %d\n", texture_color);
 		ft_draw_pixel(game->img, dda->x, y, texture_color);
 		y ++;
 	}
@@ -132,7 +132,7 @@ void	ft_hit_wall(t_dda *dda, t_map *game)
 void	ft_dda(t_dda *dda, t_map *game)
 {
 	ft_init_dda(dda, game);
-	while (dda->hit == 0 && (dda->map_i > 0) && (dda->map_j > 0) && (dda->map_i < W_HEIGHT - 1) && (dda->map_j < W_HEIGHT - 1))
+	while (dda->hit == 0)
     {
         if (dda->side_dist_x < dda->side_dist_y)
         {

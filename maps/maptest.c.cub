@@ -1,13 +1,13 @@
-NO      textures/kokomi.xpm
-SO    textures/kokomi.xpm
+NO      textures/grey25.xpm
+SO    textures/rouge.xpm
 
 
 
 
 F    255,255,255
-EA textures/kokomi.xpm
+EA textures/rougeavecdunoirsurlecote.xpm
 
-WE textures/kokomi.xpm
+WE textures/turquoiiiise.xpm
 
 
 
@@ -22,7 +22,7 @@ C 0,00,0
 11110111111111011100000010001
 11110111111111011101010010001
 11000000110101011100  0010001   
-10000S00000000001100000010001   
+10000N00000000001100000010001   
 10000000000000001101010010001  
 110000011101010111110111100111
 11110111 1110101 101111010001
