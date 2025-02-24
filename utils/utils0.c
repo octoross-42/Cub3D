@@ -33,7 +33,7 @@ void	empty_buffer(int fd)
 
 int	is_player(char c)
 {
-	if (c == 'N' || c == 'E' || c == 'W' || c == 'N')
+	if (c == 'N' || c == 'E' || c == 'W' || c == 'S')
 		return (1);
 	return (0);
 }
