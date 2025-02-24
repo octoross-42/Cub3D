@@ -42,13 +42,9 @@ t_img	*ft_init_image(t_mlx *mlx, int width, int height)
 	return (img);
 }
 
-int	ft_draw(t_map *game)
+void	ft_draw(t_map *game)
 {
 	// (void)game;
-	game->img = ft_init_image(game->mlx, W_WIDTH, W_HEIGHT);
-	if (!(game->img))
-		return (0);
 	ft_draw_walls(game);
 	mlx_put_image_to_window(game->mlx->co, game->mlx->win, game->img->img, 0, 0);
-	return (1);
 }

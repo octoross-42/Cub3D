@@ -180,7 +180,7 @@ typedef struct s_dda
 void	ft_draw_pixel(t_img *img, int x, int y, int color);
 
 void 	ft_draw_walls(t_map *map);
-int		ft_draw(t_map *game);
+void		ft_draw(t_map *game);
 t_img	*ft_init_image(t_mlx *mlx, int width, int height);
 
 #endif
