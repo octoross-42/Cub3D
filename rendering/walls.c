@@ -6,7 +6,7 @@
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 22:07:24 by octoross          #+#    #+#             */
-/*   Updated: 2025/02/24 05:48:21 by octoross         ###   ########.fr       */
+/*   Updated: 2025/02/24 07:34:04 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ float	ft_abs(float n)
 
 void	ft_init_dda(t_dda *dda, t_map *game)
 {
-	printf("here\n");
 	if (dda->ray_dx == 0)
 		dda->delta_dist_x = FLT_MAX;
 	else
@@ -32,7 +31,6 @@ void	ft_init_dda(t_dda *dda, t_map *game)
 		dda->delta_dist_y = ft_abs(1 / dda->ray_dy);
 	dda->hit = 0;
 	
-	printf("djsfk\n");
 	if (dda->ray_dx < 0)
 	{
 	  dda->step_x = -1;
@@ -43,7 +41,6 @@ void	ft_init_dda(t_dda *dda, t_map *game)
 	  dda->step_x = 1;
 	  dda->side_dist_x = (dda->map_i + 1.0 - game->player->x) * dda->delta_dist_x;
 	}
-	printf("qsjdqmsazhere\n");
 	if (dda->ray_dy < 0)
 	{
 		dda->step_y = -1;
@@ -62,13 +59,15 @@ void	ft_hit_wall(t_dda *dda, t_map *game)
 	int		draw_y_end;
 	float	wall_height;
 	t_img	*texture;
+	int 	color;
+	int		texture_color;
+	int	*addr;
 	
 	dda->hit = 1;
 	if (dda->side == 0)
 		dda->wall_dist = dda->side_dist_x - dda->delta_dist_x;
 	else
 		dda->wall_dist = dda->side_dist_y - dda->delta_dist_y;
-	printf("la\n");
 	wall_height = (int)(W_HEIGHT / dda->wall_dist);
 	draw_y_start = -(wall_height / 2) + (W_HEIGHT / 2);
 	if(draw_y_start < 0)
@@ -77,7 +76,6 @@ void	ft_hit_wall(t_dda *dda, t_map *game)
 	if(draw_y_end >= W_HEIGHT)
 	draw_y_end = W_HEIGHT - 1;
 	texture = NULL;
-	printf("lna\n");
 	if (dda->side == 0)
 	{
 		if (dda->ray_dx > game->player->x)
@@ -92,17 +90,43 @@ void	ft_hit_wall(t_dda *dda, t_map *game)
 		else
 		texture = &(game->textures->s_text);
 	}
-	printf("ladqsa\n");
-	texture->addr = mlx_get_data_addr(texture->img, &(texture->bpp),
+	addr = (int *)mlx_get_data_addr(texture->img, &(texture->bpp),
 			&(texture->size_line), &(texture->endian));
+	// int k = 0;
+	// while (k < 36 * 36)
+	// {
+	// 	printf("%d ", addr[k ++]);
+	// }
 	(void)texture;
 	// printf("direction wall : %c\n", direction);
 	int y = draw_y_start;
+	texture_color = 0x00FF00;
+	int tex_x = 0;
+	float wall_x = 0;
+	// printf("texture->width : %d\n", texture->width);
+	if (dda->side == 1)
+	{
+		wall_x = (game->player->x + dda->delta_dist_y * dda->ray_dx);
+		tex_x = (int)(wall_x * texture->width) % texture->width;
+
+	}
+	else
+	{
+		wall_x = game->player->y + dda->delta_dist_x * dda->ray_dy; // Position x de la collision
+
+		tex_x = (int)(wall_x * texture->width) % texture->width;
+	}
 	while (y < draw_y_end)
 	{
-		ft_draw_pixel(game->img, dda->x, y, 0x00FF00);
+		int tex_y = ((y - draw_y_start) * texture->height) / wall_height;
+		// printf("adreesse color : %d\n", tex_y * texture->width + tex_x);
+		texture_color = addr[tex_y * texture->width + tex_x];
+		// if (texture_color != 0)
+			// printf("texture_color : %d\n", texture_color);
+		ft_draw_pixel(game->img, dda->x, y, texture_color);
 		y ++;
 	}
+	(void)color;
 }
 
 void	ft_dda(t_dda *dda, t_map *game)
@@ -125,8 +149,6 @@ void	ft_dda(t_dda *dda, t_map *game)
         if (game->map[dda->map_j][dda->map_i] == '1')
 			ft_hit_wall(dda, game);
     }
-	if (dda->hit == 0)
-		printf("no wall\n");
 }
 
 void ft_draw_walls(t_map *map)
@@ -137,21 +159,10 @@ void ft_draw_walls(t_map *map)
 
 	player = map->player;
 	x = 0;
-	while (map->map[x])
-	{
-		int j = 0;
-		while (map->map[x][j])
-			printf("%c", map->map[x][j ++]);
-		printf("\t%d %d\n", x, j);
-		x ++;
-	}
-	x = 0;
 	while (x < W_WIDTH)
 	{
 		dda.x = x;
-		dda.fov_x = 2 * x / (double)W_WIDTH - 1;
-		printf("player x : %f\n", player->dx);
-		printf("camera plane x : %f\n", player->camera_plane_dx);
+		dda.fov_x = 2.0 * x / (double)W_WIDTH - 1.0;
 		dda.ray_dx = player->dx + player->camera_plane_dx * dda.fov_x;
 		dda.ray_dy = player->dy + player->camera_plane_dy * dda.fov_x;
 		dda.map_i = (int)player->x;
