@@ -1,7 +1,6 @@
 NAME = cub3D
 
-SRCS = src/parsing/exits_copy_map.c \
-	src/utils/gnl/get_next_line_utils.c \
+SRCS = src/utils/gnl/get_next_line_utils.c \
 	src/utils/gnl/get_next_line.c \
 	src/utils/misc.c \
 	src/utils/utils0.c \
@@ -17,6 +16,7 @@ SRCS = src/parsing/exits_copy_map.c \
 	src/parsing/parse_map_content0.c \
 	src/parsing/parse_temp_map0.c \
 	src/parsing/void_fill_temp_map.c \
+	src/parsing/exits_copy_map.c \
 	src/rendering/floor_and_ceiling.c \
 	src/rendering/draw.c \
 	src/rendering/walls.c \
