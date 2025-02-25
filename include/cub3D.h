@@ -157,6 +157,7 @@ int		draw_minimap(t_map *game);
 void    deal_with_minimap(t_map *game);
 char    *int_tab_to_hexa(int *lul);
 
+void	move_player(t_map *game, t_player *player, int key);
 
 typedef struct s_dda
 {
