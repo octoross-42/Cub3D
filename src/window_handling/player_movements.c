@@ -21,6 +21,7 @@ void	move_player(t_map *game, t_player *player, int key)
 		if (key == 115)
 			player->y -= 1;// idem
 		ft_draw(game);
+		refresh_minimap(game);
 		// player->x += player->dx;
 		// player->y += player->dy;
 	}

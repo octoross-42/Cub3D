@@ -60,3 +60,25 @@ void    draw_surroundings(t_map *game)
 		i ++;
 	}
 }
+
+void	refresh_minimap(t_map *game)
+{
+	int i;
+	int j;
+
+	i = -10;
+	j = -5;
+
+	while(i < 10)
+	{
+		while(j < 5)
+		{
+			draw_that_fk_image(game, j, i);
+			j ++;
+		}
+		j = -5;
+		i ++;
+	}
+	mlx_put_image_to_window(game->mlx->co, game->mlx->win,
+		game->minimap->dot_player, 61, 31);
+}
