@@ -58,8 +58,9 @@ int	go_to_mlx_functions(t_map *game)
 	if (!draw_minimap(game))
 		return (0);
 	
+	mlx_do_key_autorepeaton(game->mlx->co);
 	mlx_key_hook(game->mlx->win, &key_events, game);
-	mlx_hook(game->mlx->win, KeyRelease, KeyReleaseMask,
+	mlx_hook(game->mlx->win, KeyPress, KeyPressMask,
 		&key_events, game);
 	mlx_hook(game->mlx->win, DestroyNotify,
 		ButtonPressMask, &end_game, game);
