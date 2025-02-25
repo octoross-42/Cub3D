@@ -22,6 +22,6 @@
 # define X_RESOLUTION 10
 # define BUFFER_SIZE 4096
 # define HEXA "0123456789ABCDEF"
-# define SPEED 0.5
+# define SPEED 0.05
 
 #endif

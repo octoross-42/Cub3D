@@ -40,6 +40,16 @@ int	key_events(int key, t_map *game)
 	return (0);
 }
 
+
+
+int mouse_events(int button, t_map *game)
+{
+	if (button == 1)
+		printf("mouse left click detected\n");
+	(void)game;
+	return (0);
+}
+
 int	go_to_mlx_functions(t_map *game)
 {
 	if (!(init_mlx_struct(game)))
@@ -58,12 +68,13 @@ int	go_to_mlx_functions(t_map *game)
 	if (!draw_minimap(game))
 		return (0);
 	
-	mlx_do_key_autorepeaton(game->mlx->co);
+	// mlx_do_key_autorepeaton(game->mlx->co);
 	// mlx_key_hook(game->mlx->win, &key_events, game);
+	mlx_mouse_hook(game->mlx->win, &mouse_events, game);
 	mlx_hook(game->mlx->win, KeyPress, KeyPressMask,
 		&key_events, game);
-	mlx_hook(game->mlx->win, DestroyNotify,
-		ButtonPressMask, &end_game, game);
+	// mlx_hook(game->mlx->win, ButtonPress, ButtonPressMask, &rotate_fov, game);
+	mlx_hook(game->mlx->win, DestroyNotify, ButtonPressMask, &end_game, game);
 	mlx_loop(game->mlx->co);
 	return (1);
 }
