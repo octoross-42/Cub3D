@@ -6,11 +6,14 @@
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:07:34 by octoross          #+#    #+#             */
-/*   Updated: 2025/02/24 23:42:18 by octoross         ###   ########.fr       */
+/*   Updated: 2025/02/25 03:15:58 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
+
+
+// TODO: ajouter optimisation pour zoom (on voit moins donc moins de calcul)
 
 void	ft_draw_floor_and_ceiling(t_map *game)
 {

@@ -39,6 +39,7 @@ t_img	*ft_init_image(t_mlx *mlx, int width, int height)
 
 void	ft_draw(t_map *game)
 {
+	ft_draw_floor_and_ceiling(game);
 	ft_draw_walls(game);
 	mlx_put_image_to_window(game->mlx->co,
 		game->mlx->win, game->img->img, 0, 0);
