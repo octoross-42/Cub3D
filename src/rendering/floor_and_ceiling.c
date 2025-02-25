@@ -6,10 +6,30 @@
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:07:34 by octoross          #+#    #+#             */
-/*   Updated: 2025/02/24 12:06:52 by octoross         ###   ########.fr       */
+/*   Updated: 2025/02/24 23:42:18 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_draw_floor_and_ceiling(void)
+#include "cub3D.h"
+
+void	ft_draw_floor_and_ceiling(t_map *game)
 {
+	int	i;
+	int	j;
+
+	
+	i = 0;
+	while (i < W_WIDTH)
+	{
+		j = 0;
+		while (j < W_HEIGHT)
+		{
+			if (j < W_HEIGHT / 2)
+				ft_draw_pixel(game->img, i, j, 0x000000);
+			else
+				ft_draw_pixel(game->img, i, j, 0x252525);
+			j++;
+		}
+		i++;
+	}
 }
