@@ -31,7 +31,11 @@ void	draw_that_fk_image(t_map *game, int i, int j)
 		mlx_put_image_to_window(game->mlx->co, game->mlx->win,
 			game->minimap->void_square, 61 + (j * 6),
 			31 + (i * 6));
-    else if (game->map[x][y] == '1' || game->map[x][y] == '\n')
+	else if (game->map[x][y] == '\n')
+		mlx_put_image_to_window(game->mlx->co, game->mlx->win,
+			game->minimap->void_square, 61 + (j * 6),
+			31 + (i * 6));
+    else if (game->map[x][y] == '1')
         mlx_put_image_to_window(game->mlx->co, game->mlx->win,
 		    game->minimap->wall_square, 61 + (j * 6),
             31 + (i * 6));
