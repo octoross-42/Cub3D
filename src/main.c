@@ -50,6 +50,7 @@ int	check_map_content(char *map, t_map *game)
 	{
 		free(ways);
 		free(game->textures);
+		free(game);
 		write(2, "Error, can't open map file.\n", 28);
 		exit(EXIT_FAILURE);
 	}
