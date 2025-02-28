@@ -6,7 +6,7 @@
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:04:30 by octoross          #+#    #+#             */
-/*   Updated: 2025/02/28 02:45:26 by octoross         ###   ########.fr       */
+/*   Updated: 2025/02/28 14:38:56 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define SPEED 0.05
 # define ROTATION 0.05
 
-# define QWERTY_MODE 0
+# define QWERTY_MODE 1
 
 # define QWERTY_FORWARD 119
 # define QWERTY_LEFT 97
