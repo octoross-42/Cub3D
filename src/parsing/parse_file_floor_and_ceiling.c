@@ -62,8 +62,6 @@ int	check_floor_and_ceiling(char *s, int k, t_paths* paths, char c)
 	int		i;
 
 	sc = s;
-	if (ft_len(s) > 3)
-		return (0);
 	while (*s)
 	{
 		if (*s > '9' || *s < '0')

@@ -14,7 +14,7 @@
 
 int	is_token(char c)
 {
-	if (c == 'N' || c == 'W' || c == 'E' || c == 'O' || c == '0')
+	if (c == 'N' || c == 'W' || c == 'E' || c == 'O' || c == '0' || c == 'S')
 		return (1);
 	return (0);
 }
