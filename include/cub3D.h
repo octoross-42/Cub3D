@@ -84,20 +84,20 @@ typedef struct s_minimap
 	char	*vertical_outline;
 }				t_minimap;
 
-typedef struct	s_map
+typedef struct		s_map
 {
-	char	**map;
-	char	**map_copy;
-	int		player_nbr;
-	int		num_lines;
-	int		max_width;
-	t_player	*player;
-	t_minimap	*minimap;
-	char	direction;
-	t_paths	*textures;
-	t_mlx	*mlx;
-	t_img	*img;
-}			t_map;
+	char			**map;
+	char			**map_copy;
+	int				player_nbr;
+	int				num_lines;
+	int				max_width;
+	t_player		*player;
+	t_minimap		*minimap;
+	char			direction;
+	t_paths			*textures;
+	t_mlx			*mlx;
+	t_img			*img;
+}					t_map;
 
 typedef	struct	s_search
 {
@@ -192,6 +192,6 @@ void	ft_draw_floor_and_ceiling(t_map *game);
 void 	ft_draw_walls(t_map *map);
 void		ft_draw(t_map *game);
 t_img	*ft_init_image(t_mlx *mlx, int width, int height);
-void	rotate_fov(t_map *game, float r_dir);
+int		rotate_fov(int r_dir, t_map *game);
 
 #endif

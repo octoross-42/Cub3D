@@ -30,9 +30,9 @@ int	key_events(int key, t_map *game)
 		|| (((key == AZERTY_FORWARD) || (key == AZERTY_LEFT) || (key == AZERTY_RIGHT)) && !QWERTY_MODE) || (key == BACKWARD))
 		move_player(game, game->player, key);
 	else if (key == ROTATE_RIGHT)
-		rotate_fov(game, 1);
+		rotate_fov(1, game);
 	else if (key == ROTATE_LEFT)
-		rotate_fov(game, -1);
+		rotate_fov(-1, game);
 	return (0);
 }
 
@@ -45,25 +45,30 @@ int	test_fn(int x, int y, t_map *game)
 	return (0);
 }
 
-int mouse_events(int button, t_map *game)
+int mouse_press(int button, int x, int y, t_map *game)
 {
+	(void) game;
+	(void) (y);
 	if (button == 1)
-		printf("mouse left click detected\n");
-	(void)game;
+	{
+		if (x < 540)
+			rotate_fov(-5, game);
+		if (x > 540)
+			rotate_fov(5, game);
+	}
 	return (0);
 }
 
 int	go_to_mlx_functions(t_map *game)
 {
+
 	if (!(init_mlx_struct(game)))
 		return (0);
-
 	if (!change_map_get_player(game))
 		return (0);
 	get_images(game);
 	if (!check_images(game))
 		return (0);
-	
 	game->img = ft_init_image(game->mlx, W_WIDTH, W_HEIGHT);
 	if (!(game->img))
 		return (0);
@@ -71,12 +76,11 @@ int	go_to_mlx_functions(t_map *game)
 	if (!draw_minimap(game))
 		return (0);
 	
-	// mlx_do_key_autorepeaton(game->mlx->co);
-	// mlx_key_hook(game->mlx->win, &key_events, game);
-	mlx_mouse_hook(game->mlx->win, &mouse_events, game);
+	// mlx_mouse_hook(game->mlx->win, &mouse_events, game);
 	mlx_hook(game->mlx->win, KeyPress, KeyPressMask, &key_events, game);
-	// mlx_hook(game->mlx->win, ButtonPress, ButtonPressMask, &rotate_fov, game);
-	mlx_hook(game->mlx->win, MotionNotify, PointerMotionMask, &test_fn, game);//tracks the mouse
+	mlx_hook(game->mlx->win, ButtonPress, ButtonPressMask, &mouse_press, game);
+	// mlx_hook(game->mlx->win, ButtonRelease, ButtonReleaseMask, &mouse_release, game);
+	mlx_hook(game->mlx->win, MotionNotify, PointerMotionMask, &test_fn, game);
 	mlx_hook(game->mlx->win, DestroyNotify, ButtonPressMask, &end_game, game);
 	mlx_loop(game->mlx->co);
 	return (1);
