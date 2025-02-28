@@ -38,14 +38,10 @@ void	get_images(t_map *game)
 	t = game->textures;
 	t->n_text.img = mlx_xpm_file_to_image(game->mlx->co,
 		t->n_path, &t->n_text.width, &t->n_text.height);
-	printf("n_path : %s\n", t->n_path);
 	t->s_text.img = mlx_xpm_file_to_image(game->mlx->co,
 		t->s_path, &t->s_text.width, &t->s_text.height);
-		printf("s_path : %s\n", t->s_path);
 	t->e_text.img = mlx_xpm_file_to_image(game->mlx->co,
 		t->e_path, &t->e_text.width, &t->e_text.height);
-		printf("e_path : %s\n", t->e_path);
 	t->w_text.img = mlx_xpm_file_to_image(game->mlx->co,
 		t->w_path, &t->w_text.width, &t->w_text.height);
-		printf("w_path : %s\n", t->w_path);
 }

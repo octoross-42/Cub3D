@@ -6,7 +6,7 @@
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:07:34 by octoross          #+#    #+#             */
-/*   Updated: 2025/02/25 03:18:48 by octoross         ###   ########.fr       */
+/*   Updated: 2025/02/28 03:08:14 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,21 @@ void	ft_draw_floor_and_ceiling(t_map *game)
 {
 	int	i;
 	int	j;
+	int	floor_color;
+	int	ceiling_color;
 
-	
 	i = 0;
+	floor_color = (game->textures->f_col[0] << 16) | (game->textures->f_col[1] << 8) | game->textures->f_col[2];
+	ceiling_color = (game->textures->c_col[0] << 16) | (game->textures->c_col[1] << 8) | game->textures->c_col[2];
 	while (i < W_WIDTH)
 	{
 		j = 0;
 		while (j < W_HEIGHT)
 		{
 			if (j < W_HEIGHT / 2)
-				ft_draw_pixel(game->img, i, j, 0x000000);
+				ft_draw_pixel(game->img, i, j, ceiling_color);
 			else
-				ft_draw_pixel(game->img, i, j, 0x252525);
+				ft_draw_pixel(game->img, i, j, floor_color);
 			j++;
 		}
 		i++;
