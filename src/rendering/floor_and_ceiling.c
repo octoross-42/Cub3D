@@ -6,7 +6,7 @@
 /*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:07:34 by octoross          #+#    #+#             */
-/*   Updated: 2025/02/25 03:15:58 by octoross         ###   ########.fr       */
+/*   Updated: 2025/02/25 03:18:48 by octoross         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 
 // TODO: ajouter optimisation pour zoom (on voit moins donc moins de calcul)
+
+// TODO ajouter couleurs plafonds et sols de la map
 
 void	ft_draw_floor_and_ceiling(t_map *game)
 {

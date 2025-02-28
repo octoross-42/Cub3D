@@ -1,13 +1,13 @@
-NO      textures/white_brick2.xpm
-SO    textures/white_brick2.xpm
+NO      textures/rougeavecdunoirsurlecote.xpm
+SO    textures/rougeavecdunoirsurlecote.xpm
 
 
 
 
 F    255,255,255
-EA textures/white_brick2.xpm
+EA textures/rougeavecdunoirsurlecote.xpm
 
-WE textures/white_brick2.xpm
+WE textures/rougeavecdunoirsurlecote.xpm
 
 
 

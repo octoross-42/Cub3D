@@ -25,25 +25,21 @@ int	init_mlx_struct(t_map *game)
 int	key_events(int key, t_map *game)
 {
 	if (key == 65307 || key == XK_Escape)
-		end_game(game);
-	/*
-	left arrow == 65361 => look left;
-	right arrow == 65363 => look right;
-	a == 97;
-	w == 119;
-	d == 100;
-	s == 115;
-	*/
-	
-	else if (key == 97 || key == 119 || key == 100 || key == 115)
+		end_game(game);	
+	else if ((((key == QWERTY_FORWARD) || (key == QWERTY_LEFT) || (key == QWERTY_RIGHT)) && QWERTY_MODE)
+		|| (((key == AZERTY_FORWARD) || (key == AZERTY_LEFT) || (key == AZERTY_RIGHT)) && !QWERTY_MODE) || (key == BACKWARD))
 		move_player(game, game->player, key);
+	else if ((key == ROTATE_RIGHT) || (key == ROTATE_LEFT))
+		rotate_fov(game, (key == ROTATE_RIGHT));
 	return (0);
 }
 
 int	test_fn(int x, int y, t_map *game)
 {
-	printf("%i %i\n", x, y);
+	// printf("%i %i\n", x, y);
 	(void)game;
+	(void)x;
+	(void)y;
 	return (0);
 }
 
