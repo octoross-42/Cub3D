@@ -41,13 +41,13 @@ void	move_player(t_map *game, t_player *player, int key)
 		printf("player can't be moved due to a wall or map boundary\n OR because it's close to a wall\n");
 }
 
-void	rotate_fov(t_map *game, int right)
+void	rotate_fov(t_map *game, float r_dir)
 {
 	float	old_dx;
 	float	old_camera_plane_dx;
 	float	rotation;
 
-	rotation = ROTATION * (2 * right - 1);
+	rotation = ROTATION * r_dir;
 	old_dx = game->player->dx;
 	old_camera_plane_dx = game->player->camera_plane_dx;
 	game->player->dx = game->player->dx * cos(rotation) - game->player->dy * sin(rotation);

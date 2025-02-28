@@ -29,8 +29,10 @@ int	key_events(int key, t_map *game)
 	else if ((((key == QWERTY_FORWARD) || (key == QWERTY_LEFT) || (key == QWERTY_RIGHT)) && QWERTY_MODE)
 		|| (((key == AZERTY_FORWARD) || (key == AZERTY_LEFT) || (key == AZERTY_RIGHT)) && !QWERTY_MODE) || (key == BACKWARD))
 		move_player(game, game->player, key);
-	else if ((key == ROTATE_RIGHT) || (key == ROTATE_LEFT))
-		rotate_fov(game, (key == ROTATE_RIGHT));
+	else if (key == ROTATE_RIGHT)
+		rotate_fov(game, 1);
+	else if (key == ROTATE_LEFT)
+		rotate_fov(game, -1);
 	return (0);
 }
 

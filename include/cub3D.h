@@ -192,6 +192,6 @@ void	ft_draw_floor_and_ceiling(t_map *game);
 void 	ft_draw_walls(t_map *map);
 void		ft_draw(t_map *game);
 t_img	*ft_init_image(t_mlx *mlx, int width, int height);
-void	rotate_fov(t_map *game, int right);
+void	rotate_fov(t_map *game, float r_dir);
 
 #endif
