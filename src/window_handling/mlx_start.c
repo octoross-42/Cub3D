@@ -38,26 +38,37 @@ int	key_events(int key, t_map *game)
 
 int	test_fn(int x, int y, t_map *game)
 {
-	// printf("%i %i\n", x, y);
-	(void)game;
-	(void)x;
+	int i;
+
+	if (x > 1000 || x < 80)
+		i = 3;
+	else
+		i = 2;
 	(void)y;
+	if ((x < 590 && x > 490) ||
+		(game->pos_mouse < x + 20 && game->pos_mouse > x - 20))
+			return (0);
+	if (x > game->pos_mouse)
+		rotate_fov(i, game);
+	else if (x < game->pos_mouse)
+		rotate_fov(i *= -1, game);
+	game->pos_mouse = x;
 	return (0);
 }
 
-int mouse_press(int button, int x, int y, t_map *game)
-{
-	(void) game;
-	(void) (y);
-	if (button == 1)
-	{
-		if (x < 540)
-			rotate_fov(-5, game);
-		if (x > 540)
-			rotate_fov(5, game);
-	}
-	return (0);
-}
+// int mouse_press(int button, int x, int y, t_map *game)
+// {
+// 	(void) game;
+// 	(void) (y);
+// 	if (button == 1)
+// 	{
+// 		if (x < 540)
+// 			rotate_fov(-5, game);
+// 		if (x > 540)
+// 			rotate_fov(5, game);
+// 	}
+// 	return (0);
+// }
 
 int	go_to_mlx_functions(t_map *game)
 {
@@ -78,7 +89,7 @@ int	go_to_mlx_functions(t_map *game)
 	
 	// mlx_mouse_hook(game->mlx->win, &mouse_events, game);
 	mlx_hook(game->mlx->win, KeyPress, KeyPressMask, &key_events, game);
-	mlx_hook(game->mlx->win, ButtonPress, ButtonPressMask, &mouse_press, game);
+	// mlx_hook(game->mlx->win, ButtonPress, ButtonPressMask, &mouse_press, game);
 	// mlx_hook(game->mlx->win, ButtonRelease, ButtonReleaseMask, &mouse_release, game);
 	mlx_hook(game->mlx->win, MotionNotify, PointerMotionMask, &test_fn, game);
 	mlx_hook(game->mlx->win, DestroyNotify, ButtonPressMask, &end_game, game);

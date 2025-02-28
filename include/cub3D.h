@@ -84,20 +84,21 @@ typedef struct s_minimap
 	char	*vertical_outline;
 }				t_minimap;
 
-typedef struct		s_map
+typedef struct	s_map
 {
-	char			**map;
-	char			**map_copy;
-	int				player_nbr;
-	int				num_lines;
-	int				max_width;
-	t_player		*player;
-	t_minimap		*minimap;
-	char			direction;
-	t_paths			*textures;
-	t_mlx			*mlx;
-	t_img			*img;
-}					t_map;
+	char		**map;
+	char		**map_copy;
+	int			player_nbr;
+	int			num_lines;
+	int			max_width;
+	int			pos_mouse;
+	t_player	*player;
+	t_minimap	*minimap;
+	char		direction;
+	t_paths		*textures;
+	t_mlx		*mlx;
+	t_img		*img;
+}				t_map;
 
 typedef	struct	s_search
 {
