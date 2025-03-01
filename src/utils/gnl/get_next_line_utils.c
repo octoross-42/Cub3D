@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 03:19:07 by jermarti          #+#    #+#             */
+/*   Updated: 2025/03/01 03:20:19 by jermarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-int 	ft_len(char *s)
+int	ft_len(char *s)
 {
-	int 	i;
+	int	i;
 
 	if (!s)
 		return (0);
@@ -13,9 +25,9 @@ int 	ft_len(char *s)
 }
 
 //checks at which index is the \n if there is one
-int 	is_nl(char *s)
+int	is_nl(char *s)
 {
-	int 	j;
+	int	j;
 
 	j = 0;
 	if (!s)
@@ -29,7 +41,7 @@ int 	is_nl(char *s)
 
 char	*ft_strdup(char *s)
 {
-	int 	i;
+	int		i;
 	char	*dest;
 
 	if (!s || ft_len(s) == 0)
@@ -47,13 +59,12 @@ char	*ft_strdup(char *s)
 	return (dest);
 }
 
-
 char	*ft_join(char *hold, char *buff)
 {
 	char	*final;
-	int 	i;
-	int 	j;
-	
+	int		i;
+	int		j;
+
 	if (!hold && !buff)
 		return (NULL);
 	if (!hold)

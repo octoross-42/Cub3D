@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file_directions.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jermarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:12:27 by jermarti          #+#    #+#             */
-/*   Updated: 2025/02/21 23:12:29 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/03/01 03:27:09 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strncpy(const char *src, int size)
 {
-	int	i;
+	int		i;
 	char	*dst;
 
 	i = 0;

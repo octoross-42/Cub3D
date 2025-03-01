@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_exits.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 03:18:20 by jermarti          #+#    #+#             */
+/*   Updated: 2025/03/01 03:18:21 by jermarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
 void	release_textures(t_map *game)
@@ -32,10 +44,9 @@ void	free_images(t_map *game)
 	mlx_destroy_image(game->mlx->co, game->textures->w_text.img);
 	mlx_destroy_image(game->mlx->co, game->img->img);
 	free(game->img);
-	// (void) game;
 }
 
-int end_game(t_map *game)
+int	end_game(t_map *game)
 {
 	deal_with_minimap(game);
 	free_images(game);

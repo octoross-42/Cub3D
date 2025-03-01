@@ -39,14 +39,14 @@ typedef struct	s_rules
 
 typedef struct s_img
 {
-	void		*img;
-	char		*addr;
-	int			bpp;
-	int			size_line;
-	int			endian;
-	int			width;
-	int			height;
-}				t_img;
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		size_line;
+	int		endian;
+	int		width;
+	int		height;
+}			t_img;
 
 typedef struct	s_paths
 {
@@ -72,7 +72,7 @@ typedef struct s_player
 	float	dy;
 	float	camera_plane_dx;
 	float	camera_plane_dy;
-}	t_player;
+}			t_player;
 
 typedef struct s_minimap
 {
@@ -82,7 +82,7 @@ typedef struct s_minimap
 	char	*void_square;
 	char	*horizontal_outline;
 	char	*vertical_outline;
-}				t_minimap;
+}			t_minimap;
 
 typedef struct	s_map
 {
@@ -102,8 +102,8 @@ typedef struct	s_map
 
 typedef	struct	s_search
 {
-		int	wall;
-		int	zero;
+	int	wall;
+	int	zero;
 }		t_search;
 
 char	*get_next_line(int fd);
@@ -123,6 +123,7 @@ int		change_map_get_player(t_map *game);
 
 void	print_map(char **map);
 void	free_map(char **map);
+void	free_part_map(char **map, int k);
 void	final_free(t_map *game);
 void	print_int_array(int *colors);
 void	empty_buffer(int fd);
@@ -136,6 +137,7 @@ int		check_east(char *s, t_rules *ways, t_paths *paths);
 
 int		check_floor(char *s, t_rules *ways, t_paths *paths);
 int		check_ceiling(char *s, t_rules *ways, t_paths *paths);
+int		check_values(char *s, t_paths *paths, char c);
 int		map_textures(int fd, t_rules *w, t_paths *p);
 int		map_content(int fd, t_map *game);
 void	cringe_free(char *line, int fd, t_rules *w, t_paths *paths);
@@ -183,7 +185,7 @@ typedef struct s_dda
 	int		x;
 	int		draw_y_start;
 	int		draw_y_end;
-}	t_dda;
+}			t_dda;
 
 float	ft_abs(float n);
 void	ft_dda(t_dda *dda, t_map *game);
@@ -191,7 +193,7 @@ void	ft_draw_pixel(t_img *img, int x, int y, int color);
 
 void	ft_draw_floor_and_ceiling(t_map *game);
 void 	ft_draw_walls(t_map *map);
-void		ft_draw(t_map *game);
+void	ft_draw(t_map *game);
 t_img	*ft_init_image(t_mlx *mlx, int width, int height);
 int		rotate_fov(int r_dir, t_map *game);
 

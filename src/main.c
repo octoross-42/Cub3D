@@ -1,19 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 03:33:44 by jermarti          #+#    #+#             */
+/*   Updated: 2025/03/01 03:33:45 by jermarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {
-    size_t	i;
+	size_t	i;
 
-    if (!s1 && !s2)
-        return (0);
-    if (!s1)
-        return (s2[0]);
-    if (!s2)
-        return (s1[0]);
-    i = 0;
-    while (s1[i] && s1[i] == s2[i])
-        i ++;
-    return (s1[i] - s2[i]);
+	if (!s1 && !s2)
+		return (0);
+	if (!s1)
+		return (s2[0]);
+	if (!s2)
+		return (s1[0]);
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i ++;
+	return (s1[i] - s2[i]);
 }
 
 void	init_things(t_rules *w, t_paths *t)
@@ -78,8 +90,6 @@ int	check_map_ext(char *s)
 	return (1);
 }
 
-
-//crow of judgment clang *.c -lXext -lX11 -Imlx -Lmlx -lmlx && valgrind --leak-check=full ./a.out maptest.c.cub
 int	main(int argc, char **argv)
 {
 	t_map	*game;

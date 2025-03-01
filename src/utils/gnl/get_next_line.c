@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 03:21:06 by jermarti          #+#    #+#             */
+/*   Updated: 2025/03/01 03:21:07 by jermarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
 char	*shortstr(char *src)
 {
-	int 	i;
+	int		i;
 	char	*dest;
 
 	if (!src)
@@ -23,8 +35,8 @@ char	*shortstr(char *src)
 
 char	*holdtrim(char *hold)
 {
-	int 	i;
-	int 	n;
+	int		i;
+	int		n;
 	char	*new;
 
 	if (!hold || ft_len(hold) == 0)
@@ -47,7 +59,7 @@ char	*holdtrim(char *hold)
 
 char	*process_buff(int fd, char *hold)
 {
-	int 	n;
+	int		n;
 	char	*buff;
 
 	buff = malloc (sizeof(char) * (BUFFER_SIZE + 1));

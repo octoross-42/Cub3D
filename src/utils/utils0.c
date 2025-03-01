@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils0.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 03:23:02 by jermarti          #+#    #+#             */
+/*   Updated: 2025/03/01 03:23:03 by jermarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
 int	f_and_c_cmp(t_paths *textures)
@@ -7,7 +19,7 @@ int	f_and_c_cmp(t_paths *textures)
 
 	i = 0;
 	j = 0;
-	while(i < 3)
+	while (i < 3)
 	{
 		if (textures->f_col[i] == textures->c_col[i])
 			j ++;
