@@ -8,11 +8,13 @@ SRCS = src/utils/gnl/get_next_line_utils.c \
 	src/mini_map/mini_map.c \
 	src/mini_map/mini_map_env.c \
 	src/window_handling/mlx_exits.c \
+	src/window_handling/mlx_exits1.c \
 	src/window_handling/mlx_start.c \
 	src/window_handling/mlx_images.c \
 	src/window_handling/player_movements.c \
 	src/parsing/parse_file_directions.c \
 	src/parsing/parse_file_floor_and_ceiling.c \
+	src/parsing/parse_file_floor_and_ceiling1.c \
 	src/parsing/parse_file_textures.c \
 	src/parsing/parse_map_content0.c \
 	src/parsing/parse_temp_map0.c \

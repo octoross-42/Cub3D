@@ -3,16 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   exits_copy_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:12:05 by jermarti          #+#    #+#             */
-/*   Updated: 2025/02/23 23:02:31 by octoross         ###   ########.fr       */
+/*   Updated: 2025/03/01 03:40:52 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	noob_free(void  *ptr)
+void	free_part_map(char **map, int k)
+{
+	while (k > -1)
+		free (map[k --]);
+	free (map);
+}
+
+void	noob_free(void *ptr)
 {
 	if (ptr)
 	{
@@ -23,7 +30,7 @@ void	noob_free(void  *ptr)
 
 void	free_copy_map(t_map *game, char **map)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < (game->num_lines + 2))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   void_fill_temp_map.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jermarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:14:15 by jermarti          #+#    #+#             */
-/*   Updated: 2025/02/21 23:14:17 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/03/01 03:28:43 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_token(char c)
 {
-	if (c == 'N' || c == 'W' || c == 'E' || c == 'O' || c == '0')
+	if (c == 'N' || c == 'W' || c == 'E' || c == 'O' || c == '0' || c == 'S')
 		return (1);
 	return (0);
 }
@@ -25,7 +25,8 @@ void	ty_lugway_bis(t_map *game, int i, int j, t_search *values)
 	{
 		game->map_copy[i][j] = '2';
 		if (game->map_copy[i][j + 1] == 'B' || game->map_copy[i + 1][j] == 'B'
-			|| game->map_copy[i][j - 1] == 'B' || game->map_copy[i - 1][j] == 'B')
+			|| game->map_copy[i][j - 1] == 'B'
+			|| game->map_copy[i - 1][j] == 'B')
 			values->wall = 1;
 		if (is_token(game->map_copy[i][j + 1])
 			|| is_token(game->map_copy[i + 1][j])
@@ -99,8 +100,8 @@ int	apply_algo(t_map *game, t_search *values)
 
 int	is_map_closed(t_map *game)
 {
-	int i;
-	t_search *values;
+	int			i;
+	t_search	*values;
 
 	values = malloc(sizeof(t_search));
 	if (!values)

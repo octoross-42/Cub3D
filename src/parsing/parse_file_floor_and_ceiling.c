@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file_floor_and_ceiling.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jermarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:12:40 by jermarti          #+#    #+#             */
-/*   Updated: 2025/02/21 23:12:42 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/03/01 03:39:15 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,12 @@ void	give_values(int k, int i, t_paths *paths, char c)
 		paths->f_col[i] = k;
 }
 
-int	check_floor_and_ceiling(char *s, int k, t_paths* paths, char c)
+int	check_floor_and_ceiling(char *s, int k, t_paths *paths, char c)
 {
 	char	*sc;
 	int		i;
 
 	sc = s;
-	if (ft_len(s) > 3)
-		return (0);
 	while (*s)
 	{
 		if (*s > '9' || *s < '0')
@@ -98,7 +96,7 @@ int	check_values(char *s, t_paths *paths, char c)
 		if (!s1)
 			return (free(s2), 0);
 		if (!check_floor_and_ceiling(s1, i, paths, c))
-			return(free(s1), free(s2), 0);
+			return (free(s1), free(s2), 0);
 		free(s1);
 		i ++;
 		j = j + until_comma(&s2[j]) + 1;
@@ -106,40 +104,4 @@ int	check_values(char *s, t_paths *paths, char c)
 			return (free(s2), 0);
 	}
 	return (free(s2), 1);
-}
-
-int	check_ceiling(char *s, t_rules *ways, t_paths *paths)
-{
-	if (ways->ceiling == 1)
-	{
-		ways->ceiling ++;
-		return (printf("Error, duplicate line for ceiling\n"), 0);
-	}
-	while (*s == ' ')
-		s ++;
-	if (!check_values(s, paths, 'c'))
-		return (printf("Error, wrong input line for ceiling\n"), 0);
-	else
-	{
-		ways->ceiling ++;
-		return (1);
-	}
-}
-
-int	check_floor(char *s, t_rules *ways, t_paths *paths)
-{
-	if (ways->floor == 1)
-	{
-		ways->floor ++;
-		return (printf("Error, duplicate line for floor\n"), 0);
-	}
-	while (*s == ' ')
-		s ++;
-	if (!check_values(s, paths, 'f'))
-		return (printf("Error, wrong input line for floor\n"), 0);
-	else
-	{
-		ways->floor ++;
-		return (1);
-	}
 }

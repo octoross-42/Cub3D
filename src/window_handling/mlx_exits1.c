@@ -1,57 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_exits.c                                        :+:      :+:    :+:   */
+/*   mlx_exits1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 03:18:20 by jermarti          #+#    #+#             */
-/*   Updated: 2025/03/01 03:18:21 by jermarti         ###   ########.fr       */
+/*   Created: 2025/03/01 04:46:55 by jermarti          #+#    #+#             */
+/*   Updated: 2025/03/01 05:16:59 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	release_textures(t_map *game)
+void	exit_minimap(t_map *game)
 {
-	free(game->textures->n_path);
-	free(game->textures->s_path);
-	free(game->textures->e_path);
-	free(game->textures->w_path);
-	free(game->textures);
+	free_images(game);
+	free_mlx(game);
+	final_free(game);
+	free(game);
+	exit(EXIT_FAILURE);
 }
 
-void	final_free(t_map *game)
-{
-	free(game->player);
-	release_textures(game);
-	free_map(game->map);
-}
-
-void	free_mlx(t_map *game)
-{
-	mlx_destroy_window(game->mlx->co, game->mlx->win);
-	mlx_destroy_display(game->mlx->co);
-	free(game->mlx->co);
-	free(game->mlx);
-}
-
-void	free_images(t_map *game)
+void	exit_image(t_map *game)
 {
 	mlx_destroy_image(game->mlx->co, game->textures->n_text.img);
 	mlx_destroy_image(game->mlx->co, game->textures->e_text.img);
 	mlx_destroy_image(game->mlx->co, game->textures->s_text.img);
 	mlx_destroy_image(game->mlx->co, game->textures->w_text.img);
-	mlx_destroy_image(game->mlx->co, game->img->img);
-	free(game->img);
+	free_mlx(game);
+	final_free(game);
+	free(game);
+	exit(EXIT_FAILURE);
 }
 
-int	end_game(t_map *game)
+void	exit_images(t_map *game)
 {
-	deal_with_minimap(game);
-	free_images(game);
-	final_free(game);
 	free_mlx(game);
+	final_free(game);
 	free(game);
-	exit(EXIT_SUCCESS);
+	exit(EXIT_FAILURE);
+}
+
+void	error_player(t_map *game)
+{
+	free_mlx(game);
+	release_textures(game);
+	free_map(game->map);
+	free(game);
+	exit(EXIT_FAILURE);
+}
+
+void	error_mlx(t_map *game)
+{
+	release_textures(game);
+	free_map(game->map);
+	free(game);
+	exit(EXIT_FAILURE);
 }

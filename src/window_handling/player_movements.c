@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player_movements.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 03:08:27 by jermarti          #+#    #+#             */
+/*   Updated: 2025/03/01 03:34:52 by jermarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
 void	move_player(t_map *game, t_player *player, int key)
@@ -37,23 +49,26 @@ void	move_player(t_map *game, t_player *player, int key)
 		ft_draw(game);
 		refresh_minimap(game);
 	}
-	else
-		printf("player can't be moved due to a wall or map boundary\n OR because it's close to a wall\n");
 }
 
-void	rotate_fov(t_map *game, float r_dir)
+int	rotate_fov(int r_dir, t_map *game)
 {
 	float	old_dx;
 	float	old_camera_plane_dx;
 	float	rotation;
 
-	rotation = ROTATION * r_dir;
+	rotation = ROTATION * (float) r_dir;
 	old_dx = game->player->dx;
 	old_camera_plane_dx = game->player->camera_plane_dx;
-	game->player->dx = game->player->dx * cos(rotation) - game->player->dy * sin(rotation);
-	game->player->dy = old_dx * sin(rotation) + game->player->dy * cos(rotation);
-	game->player->camera_plane_dx = game->player->camera_plane_dx * cos(rotation) - game->player->camera_plane_dy * sin(rotation);
-	game->player->camera_plane_dy = old_camera_plane_dx * sin(rotation) + game->player->camera_plane_dy * cos(rotation);
+	game->player->dx = game->player->dx
+		* cos(rotation) - game->player->dy * sin(rotation);
+	game->player->dy = old_dx * sin(rotation) + game->player->dy
+		* cos(rotation);
+	game->player->camera_plane_dx = game->player->camera_plane_dx
+		* cos(rotation) - game->player->camera_plane_dy * sin(rotation);
+	game->player->camera_plane_dy = old_camera_plane_dx * sin(rotation)
+		+ game->player->camera_plane_dy * cos(rotation);
 	ft_draw(game);
 	refresh_minimap(game);
+	return (0);
 }

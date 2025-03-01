@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file_textures.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:12:59 by jermarti          #+#    #+#             */
-/*   Updated: 2025/02/22 22:04:42 by octoross         ###   ########.fr       */
+/*   Updated: 2025/03/01 03:26:30 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	cringe_free(char *line, int fd, t_rules *w, t_paths *paths)
 {
-	while(line)
+	while (line)
 	{
 		free(line);
 		line = get_next_line(fd);
@@ -48,10 +48,10 @@ int	everything_set(t_rules *ways)
 		return (1);
 	else if (ways->north > 1 || ways->south > 1 || ways->east > 1
 		|| ways->west > 1 || ways->ceiling > 1 || ways->floor > 1)
-		{
-			printf("Error, duplicate found in the file\n");
-			return (-1);
-		}
+	{
+		printf("Error, duplicate found in the file\n");
+		return (-1);
+	}
 	else
 		return (0);
 }

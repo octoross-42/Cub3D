@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map_content0.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:13:16 by jermarti          #+#    #+#             */
-/*   Updated: 2025/02/24 01:37:59 by octoross         ###   ########.fr       */
+/*   Updated: 2025/03/01 03:40:45 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
-
-void	free_part_map(char **map, int k)
-{
-	while (k > -1)
-		free (map[k --]);
-	free (map);
-}
 
 //have to free st_map here too
 char	**get_map(char *st_map, t_map *game)
@@ -44,7 +37,6 @@ char	**get_map(char *st_map, t_map *game)
 		l = i;
 	}
 	game->map[k] = NULL;
-	// print_map(game->map);
 	return (free(st_map), game->map);
 }
 
@@ -92,7 +84,9 @@ int	set_basics(char *st_map, t_map *game)
 	printf("Error, no player or more than one player found\n");
 	return (0);
 }
-//must return 0 if error; 1 if good. directly fed to primary fn for 2nd half of the map
+//must return 0 if error; 1 if good. 
+//directly fed to primary fn for 2nd half of the map
+
 int	parse_stretched_map(char *st_map, t_map *game)
 {
 	int	i;
@@ -114,7 +108,7 @@ int	parse_stretched_map(char *st_map, t_map *game)
 	if (!game->map_copy)
 	{
 		printf("Error mallocing a map or one of its line\n");
-		return(free_map(game->map), free(st_map), 0);
+		return (free_map(game->map), free(st_map), 0);
 	}
 	free(st_map);
 	return (1);

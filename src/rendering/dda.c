@@ -92,16 +92,14 @@ void	ft_hit_wall(t_dda *dda, t_map *game)
 	addr = (int *)mlx_get_data_addr(dda->texture->img, &(dda->texture->bpp),
 			&(dda->texture->size_line), &(dda->texture->endian));
 	x_text = (int)(dda->wall_x * dda->texture->width) % dda->texture->width;
-	dda->draw_y_start = -(dda->wall_height / 2) + (W_HEIGHT / 2);
-	if (dda->draw_y_start < 0)
-		dda->draw_y_start = 0;
-	dda->draw_y_end = (dda->wall_height / 2) + (W_HEIGHT / 2);
-	if (dda->draw_y_end >= W_HEIGHT)
-		dda->draw_y_end = W_HEIGHT - 1;
-	y = dda->draw_y_start;
-	while (y < dda->draw_y_end)
+	dda->y_start = -(dda->wall_height / 2) + (W_HEIGHT / 2);
+	dda->y_end = (dda->wall_height / 2) + (W_HEIGHT / 2);
+	y = dda->y_start;
+	if (y < 0)
+		y = 0;
+	while ((y < dda->y_end) && (y < W_HEIGHT))
 	{
-		y_text = ((y - dda->draw_y_start)
+		y_text = ((y - dda->y_start)
 				* dda->texture->height) / dda->wall_height;
 		color = addr[y_text * dda->texture->width + x_text];
 		ft_draw_pixel(game->img, dda->x, y ++, color);
