@@ -6,7 +6,7 @@
 /*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:15:49 by jermarti          #+#    #+#             */
-/*   Updated: 2025/03/01 05:00:44 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/03/01 05:11:50 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	go_to_mlx_functions(t_map *game)
 	if (!(init_mlx_struct(game)))
 		return (0);
 	if (!change_map_get_player(game))
-		return (0);
+		error_player(game);
 	get_images(game);
 	if (!check_images(game))
 		exit_images(game);

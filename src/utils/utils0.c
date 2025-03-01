@@ -6,7 +6,7 @@
 /*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:23:02 by jermarti          #+#    #+#             */
-/*   Updated: 2025/03/01 03:23:03 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/03/01 05:13:39 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ int	change_map_get_player(t_map *game)
 			if (game->map[i][j] == ' ')
 				game->map[i][j] = '1';
 			else if (is_player(game->map[i][j]) && !position_player(game, i, j))
+			{
+				printf("Error mallocing player structure\n");
 				return (0);
+			}
 			j ++;
 		}
 		j = 0;

@@ -6,7 +6,7 @@
 /*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 04:46:55 by jermarti          #+#    #+#             */
-/*   Updated: 2025/03/01 05:00:09 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/03/01 05:11:28 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ void	exit_images(t_map *game)
 {
 	free_mlx(game);
 	final_free(game);
+	free(game);
+	exit(EXIT_FAILURE);
+}
+
+void	error_player(t_map *game)
+{
+	free_mlx(game);
+	release_textures(game);
+	free_map(game->map);
 	free(game);
 	exit(EXIT_FAILURE);
 }
