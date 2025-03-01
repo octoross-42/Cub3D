@@ -154,12 +154,16 @@ int		go_to_mlx_functions(t_map *game);
 void	get_images(t_map *game);
 void	free_images(t_map *game);
 int		check_images(t_map *game);
+void	check_and_free(t_map *game);
 void	free_mlx(t_map *game);
 void    draw_surroundings(t_map *game);
 int		draw_minimap(t_map *game);
 void	refresh_minimap(t_map *game);
 void    deal_with_minimap(t_map *game);
 char    *int_tab_to_hexa(int *lul);
+
+void    exit_image(t_map *game);
+void	exit_minimap(t_map *game);
 
 void	move_player(t_map *game, t_player *player, int key);
 

@@ -8,6 +8,7 @@ SRCS = src/utils/gnl/get_next_line_utils.c \
 	src/mini_map/mini_map.c \
 	src/mini_map/mini_map_env.c \
 	src/window_handling/mlx_exits.c \
+	src/window_handling/mlx_exits1.c \
 	src/window_handling/mlx_start.c \
 	src/window_handling/mlx_images.c \
 	src/window_handling/player_movements.c \

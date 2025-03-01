@@ -6,7 +6,7 @@
 /*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:15:49 by jermarti          #+#    #+#             */
-/*   Updated: 2025/03/01 03:43:52 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/03/01 04:51:08 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ int	go_to_mlx_functions(t_map *game)
 		return (0);
 	game->img = ft_init_image(game->mlx, W_WIDTH, W_HEIGHT);
 	if (!(game->img))
-		return (0);
+		exit_image(game);
 	ft_draw(game);
 	if (!draw_minimap(game))
-		return (0);
+		exit_minimap(game);
 	mlx_hook(game->mlx->win, KeyPress, KeyPressMask, &key_events, game);
 	mlx_hook(game->mlx->win, MotionNotify, PointerMotionMask, &test_fn, game);
 	mlx_hook(game->mlx->win, DestroyNotify, ButtonPressMask, &end_game, game);
