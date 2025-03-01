@@ -6,7 +6,7 @@
 /*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:15:49 by jermarti          #+#    #+#             */
-/*   Updated: 2025/03/01 05:11:50 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/03/01 05:17:36 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	init_mlx_struct(t_map *game)
 		free(game->mlx);
 		return (printf("Error, mlx failed to open a window\n"), 0);
 	}
-	return (1);
+	(void)game;
+	return (0);
 }
 
 int	key_events(int key, t_map *game)
@@ -73,7 +74,7 @@ int	test_fn(int x, int y, t_map *game)
 int	go_to_mlx_functions(t_map *game)
 {
 	if (!(init_mlx_struct(game)))
-		return (0);
+		error_mlx(game);
 	if (!change_map_get_player(game))
 		error_player(game);
 	get_images(game);
