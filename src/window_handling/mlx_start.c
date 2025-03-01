@@ -6,7 +6,7 @@
 /*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:15:49 by jermarti          #+#    #+#             */
-/*   Updated: 2025/03/01 04:51:08 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/03/01 05:00:44 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	go_to_mlx_functions(t_map *game)
 		return (0);
 	get_images(game);
 	if (!check_images(game))
-		return (0);
+		exit_images(game);
 	game->img = ft_init_image(game->mlx, W_WIDTH, W_HEIGHT);
 	if (!(game->img))
 		exit_image(game);

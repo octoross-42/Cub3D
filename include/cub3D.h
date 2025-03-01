@@ -164,6 +164,7 @@ char    *int_tab_to_hexa(int *lul);
 
 void    exit_image(t_map *game);
 void	exit_minimap(t_map *game);
+void	exit_images(t_map *game);
 
 void	move_player(t_map *game, t_player *player, int key);
 

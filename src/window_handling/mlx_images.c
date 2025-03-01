@@ -6,7 +6,7 @@
 /*   By: jermarti <jermarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:17:32 by jermarti          #+#    #+#             */
-/*   Updated: 2025/03/01 03:17:47 by jermarti         ###   ########.fr       */
+/*   Updated: 2025/03/01 04:56:53 by jermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void	check_and_free(t_map *game)
 
 int	check_images(t_map *game)
 {
-	if (!game->textures->n_text.img || !game->textures->e_text.img
-		|| !game->textures->w_text.img ||!game->textures->s_text.img)
-	{
+	// if (!game->textures->n_text.img || !game->textures->e_text.img
+	// 	|| !game->textures->w_text.img ||!game->textures->s_text.img)
+	// {
 		check_and_free(game);
 		return (0);
-	}
-	return (1);
+	// }
+	// return (1);
 }
 
 void	get_images(t_map *game)
