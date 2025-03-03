@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: octoross <octoross@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/03 18:54:57 by octoross          #+#    #+#             */
+/*   Updated: 2025/03/03 18:57:25 by octoross         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef CUB3D_H
 
@@ -21,13 +32,13 @@
 
 # include "constantes.h"
 
-typedef struct	s_mlx
+typedef struct s_mlx
 {
 	void	*co;
 	void	*win;
 }			t_mlx;
 
-typedef struct	s_rules
+typedef struct s_rules
 {
 	int	north;
 	int	south;
@@ -48,7 +59,7 @@ typedef struct s_img
 	int		height;
 }			t_img;
 
-typedef struct	s_paths
+typedef struct s_paths
 {
 	char	*n_path;
 	t_img	n_text;
@@ -84,7 +95,7 @@ typedef struct s_minimap
 	char	*vertical_outline;
 }			t_minimap;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char		**map;
 	char		**map_copy;
@@ -100,7 +111,7 @@ typedef struct	s_map
 	t_img		*img;
 }				t_map;
 
-typedef	struct	s_search
+typedef struct s_search
 {
 	int	wall;
 	int	zero;
@@ -128,7 +139,7 @@ void	final_free(t_map *game);
 void	print_int_array(int *colors);
 void	empty_buffer(int fd);
 
-int 	end_game(t_map *game);
+int		end_game(t_map *game);
 
 int		check_north(char *s, t_rules *ways, t_paths *paths);
 int		check_south(char *s, t_rules *ways, t_paths *paths);
@@ -143,9 +154,9 @@ int		map_content(int fd, t_map *game);
 void	cringe_free(char *line, int fd, t_rules *w, t_paths *paths);
 
 char	**copy_map(t_map *game);
-void    free_copy_map(t_map *game, char **map);
-void	noob_free(void  *ptr);
-void    exit_bad_map(t_map *game);
+void	free_copy_map(t_map *game, char **map);
+void	noob_free(void *ptr);
+void	exit_bad_map(t_map *game);
 void	release_textures(t_map *game);
 
 int		is_map_closed(t_map *game);
@@ -156,13 +167,13 @@ void	free_images(t_map *game);
 int		check_images(t_map *game);
 void	check_and_free(t_map *game);
 void	free_mlx(t_map *game);
-void    draw_surroundings(t_map *game);
+void	draw_surroundings(t_map *game);
 int		draw_minimap(t_map *game);
 void	refresh_minimap(t_map *game);
-void    deal_with_minimap(t_map *game);
-char    *int_tab_to_hexa(int *lul);
+void	deal_with_minimap(t_map *game);
+char	*int_tab_to_hexa(int *lul);
 
-void    exit_image(t_map *game);
+void	exit_image(t_map *game);
 void	exit_minimap(t_map *game);
 void	exit_images(t_map *game);
 void	error_player(t_map *game);
@@ -199,7 +210,7 @@ void	ft_dda(t_dda *dda, t_map *game);
 void	ft_draw_pixel(t_img *img, int x, int y, int color);
 
 void	ft_draw_floor_and_ceiling(t_map *game);
-void 	ft_draw_walls(t_map *map);
+void	ft_draw_walls(t_map *map);
 void	ft_draw(t_map *game);
 t_img	*ft_init_image(t_mlx *mlx, int width, int height);
 int		rotate_fov(int r_dir, t_map *game);
