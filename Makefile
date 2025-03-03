@@ -1,5 +1,16 @@
 NAME = cub3D
 
+RESET	:=	\e[0m
+BOLD	:=	\e[1m
+ITAL	:=	\e[3m
+BLINK	:=	\e[5m
+GREEN	:=	\e[32m
+YELLOW	:=	\e[33m
+BLUE	:=	\e[34m
+CYAN	:=	\e[36m
+PINK	:=	\e[38;2;255;182;193m
+
+
 SRCS = src/utils/gnl/get_next_line_utils.c \
 	src/utils/gnl/get_next_line.c \
 	src/utils/misc.c \
@@ -32,13 +43,22 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLX_FLAGS = -lmlx -lXext -lX11
 
+MLX_DIR = mlx
+MLX_REPO = https://github.com/42paris/minilibx-linux.git
+
 %.o: %.c
 	$(CC) $(CFLAGS) -g3 -Iinclude/ -Imlx -c $< -o ${<:.c=.o}	
 
 $(NAME): ${OBJS}
 	$(CC) $(CFLAGS) $(OBJS) -Lmlx -L/usr/lib $(MLX_FLAGS) -lm -lz -o $(NAME)
 
-all : ${NAME}
+all : mlx ${NAME}
+
+mlx :
+	if [ ! -d "$(MLX_DIR)" ]; then \
+		git clone $(MLX_REPO) $(MLX_DIR) && cd $(MLX_DIR) && ./configure && cd ../; \
+		fi
+
 
 clean:
 	rm -f ${OBJS}
