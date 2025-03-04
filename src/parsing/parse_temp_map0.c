@@ -96,11 +96,6 @@ char	**copy_map(t_map *game)
 		i ++;
 	}
 	game->map_copy[i] = last_line(game, game->map[game->num_lines - 1]);
-	if (!game->map_copy[i] && !game->map[game->num_lines - 1])
-	{
-		print_map(game->map_copy);
-		return (game->map_copy);
-	}
 	game->map_copy[i + 1] = extern_lines(game);
 	game->map_copy[i + 2] = NULL;
 	if (!game->map_copy[i + 1] || !game->map_copy[i] || !game->map_copy[0])
