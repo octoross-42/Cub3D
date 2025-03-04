@@ -22,11 +22,11 @@ char	*last_line(t_map *game, char *to_copy)
 	line = malloc(sizeof(char) * (game->max_width + 2));
 	if (!line)
 		return (NULL);
-	i = 0;
+	i = 1;
 	line[0] = 'B';
 	while (i < k + 1)
 	{
-		line[i + 1] = to_copy[i];
+		line[i] = to_copy[i - 1];
 		i ++;
 	}
 	while (i < (game->max_width))
@@ -96,6 +96,11 @@ char	**copy_map(t_map *game)
 		i ++;
 	}
 	game->map_copy[i] = last_line(game, game->map[game->num_lines - 1]);
+	if (!game->map_copy[i] && !game->map[game->num_lines - 1])
+	{
+		print_map(game->map_copy);
+		return (game->map_copy);
+	}
 	game->map_copy[i + 1] = extern_lines(game);
 	game->map_copy[i + 2] = NULL;
 	if (!game->map_copy[i + 1] || !game->map_copy[i] || !game->map_copy[0])
